@@ -127,16 +127,12 @@
 		315A38E11EC0DC6F00C0145B /* HomeApp */ = {
 			isa = PBXGroup;
 			children = (
-				315A392B1EC0F66700C0145B /* HomeApp.entitlements */,
+				315A39351EC132B000C0145B /* Other */,
+				315A39341EC1328E00C0145B /* Layouts */,
 				315A39141EC0EA3C00C0145B /* Utilities */,
 				315A39111EC0E4E300C0145B /* ViewControllers */,
 				315A38E21EC0DC6F00C0145B /* AppDelegate.swift */,
-				315A38E61EC0DC6F00C0145B /* Main.storyboard */,
 				315A38E91EC0DC6F00C0145B /* Assets.xcassets */,
-				315A38EB1EC0DC6F00C0145B /* LaunchScreen.storyboard */,
-				315A38EE1EC0DC6F00C0145B /* Info.plist */,
-				315A39241EC0ED8A00C0145B /* Localizable.strings */,
-				315A39291EC0F21100C0145B /* GoogleService-Info.plist */,
 			);
 			path = HomeApp;
 			sourceTree = "<group>";
@@ -184,6 +180,26 @@
 				315A39161EC0EA5D00C0145B /* LocalizedStrings.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		315A39341EC1328E00C0145B /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				315A38E61EC0DC6F00C0145B /* Main.storyboard */,
+				315A38EB1EC0DC6F00C0145B /* LaunchScreen.storyboard */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		315A39351EC132B000C0145B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				315A392B1EC0F66700C0145B /* HomeApp.entitlements */,
+				315A38EE1EC0DC6F00C0145B /* Info.plist */,
+				315A39241EC0ED8A00C0145B /* Localizable.strings */,
+				315A39291EC0F21100C0145B /* GoogleService-Info.plist */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 		3E603C05BD4A065BB9DC0244 /* Frameworks */ = {
