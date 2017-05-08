@@ -1,0 +1,11 @@
+//MARK: - Global strings
+"APP-NAME" = "Home App";
+"EMAIL" = "E-mail";
+"PASSWORD" = "Password";
+"CLOSE" = "Close";
+
+//MARK: - Login strings
+"SIGN-IN" = "Sign in";
+"REGISTER" = "Register";
+"SIGN-IN-ERROR-TITLE" = "Could not sign in account";
+"REGISTER-ERROR-TITLE" = "Could not register account";
