@@ -39,9 +39,7 @@ class LoginViewController: UIViewController {
     @IBAction func signInTap(_ sender: Any) {
         FIRAuth.auth()!.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!) { (user, error) in
             if let error = error {
-                let alert = UIAlertController(title: "Could not login user", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Click", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                showAlert(title: "SIGN-IN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
         }
     }
@@ -51,9 +49,7 @@ class LoginViewController: UIViewController {
             if error == nil {
                 FIRAuth.auth()!.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!)
             } else {
-                let alert = UIAlertController(title: "Could not register account", message: error?.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Click", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                showAlert(title: "REGISTER-ERROR-TITLE".localized(), message: error?.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
         }
     }
