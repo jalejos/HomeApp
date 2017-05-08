@@ -19,6 +19,7 @@
 		315A392A1EC0F21100C0145B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 315A39291EC0F21100C0145B /* GoogleService-Info.plist */; };
 		315A392D1EC1277B00C0145B /* SegueIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A392C1EC1277B00C0145B /* SegueIdentifiers.swift */; };
 		315A392F1EC1283C00C0145B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A392E1EC1283C00C0145B /* MapViewController.swift */; };
+		315A39331EC12F8000C0145B /* AlertViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A39321EC12F8000C0145B /* AlertViewUtility.swift */; };
 		7D7ADEBDDCF316145FC63BCB /* Pods_HomeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAB8222635FB3757FFD7B10 /* Pods_HomeApp.framework */; };
 		8DD93A205DC02E8E1F4FE203 /* Pods_HomeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DBA406D1FB5C5364A525D4 /* Pods_HomeAppUITests.framework */; };
 		F2545ECFFAFE55BAA9E247ED /* Pods_HomeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62C807779B5947280A5374C /* Pods_HomeAppTests.framework */; };
@@ -64,6 +65,7 @@
 		315A392B1EC0F66700C0145B /* HomeApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeApp.entitlements; sourceTree = "<group>"; };
 		315A392C1EC1277B00C0145B /* SegueIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifiers.swift; sourceTree = "<group>"; };
 		315A392E1EC1283C00C0145B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		315A39321EC12F8000C0145B /* AlertViewUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewUtility.swift; sourceTree = "<group>"; };
 		4FAB8222635FB3757FFD7B10 /* Pods_HomeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B0489D8BE9B7F566A4BDC2 /* Pods-HomeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeAppUITests/Pods-HomeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		577DA03148A8FB81AD57EA47 /* Pods-HomeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeApp/Pods-HomeApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				315A39151EC0EA4A00C0145B /* Extensions */,
 				315A392C1EC1277B00C0145B /* SegueIdentifiers.swift */,
+				315A39321EC12F8000C0145B /* AlertViewUtility.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 			files = (
 				315A392D1EC1277B00C0145B /* SegueIdentifiers.swift in Sources */,
 				315A39131EC0E52B00C0145B /* LoginViewController.swift in Sources */,
+				315A39331EC12F8000C0145B /* AlertViewUtility.swift in Sources */,
 				315A39171EC0EA5D00C0145B /* LocalizedStrings.swift in Sources */,
 				315A392F1EC1283C00C0145B /* MapViewController.swift in Sources */,
 				315A38E31EC0DC6F00C0145B /* AppDelegate.swift in Sources */,
