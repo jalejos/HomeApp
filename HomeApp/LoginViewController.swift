@@ -10,26 +10,24 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var appLabel: UILabel!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signinButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        localizeUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func localizeUI() {
+        appLabel.text = "APP-NAME".localized()
+        emailField.placeholder = "EMAIL".localized()
+        passwordField.placeholder = "PASSWORD".localized()
+        signinButton.setTitle("SIGN-IN".localized(), for: .normal)
+        registerButton.setTitle("REGISTER".localized(), for: .normal)
     }
-    */
-
+   
 }
