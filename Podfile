@@ -7,6 +7,7 @@ target 'HomeApp' do
 
   # Pods for HomeApp
   pod 'Firebase', '~> 3.14'
+  pod 'Firebase/Auth', '~> 3.1'
 
   target 'HomeAppTests' do
     inherit! :search_paths
