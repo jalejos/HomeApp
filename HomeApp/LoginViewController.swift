@@ -20,6 +20,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+            if user != nil {
+                self.performSegue(withIdentifier: SegueIdentifier.signIn.rawValue, sender: nil)
+            }
+        }
         localizeUI()
     }
     

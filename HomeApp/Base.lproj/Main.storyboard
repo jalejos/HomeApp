@@ -90,11 +90,30 @@
                         <outlet property="passwordField" destination="16F-QI-YbP" id="WOj-fv-dgY"/>
                         <outlet property="registerButton" destination="MKW-jI-fbt" id="s4W-fH-UuM"/>
                         <outlet property="signinButton" destination="Nz9-DB-VpG" id="Zg7-Fg-qgo"/>
+                        <segue destination="Bfl-A0-pXE" kind="presentation" identifier="signIn" id="2Z7-oX-PaH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="EUG-i7-6ai">
+            <objects>
+                <viewController id="Bfl-A0-pXE" customClass="MapViewController" customModule="HomeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oB8-HZ-2lT"/>
+                        <viewControllerLayoutGuide type="bottom" id="Au2-9s-IAh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kvl-Fo-t14">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sux-DR-yav" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="781" y="38"/>
         </scene>
     </scenes>
 </document>
