@@ -59,6 +59,7 @@
 		315A39161EC0EA5D00C0145B /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		315A39231EC0ED8A00C0145B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		315A39291EC0F21100C0145B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		315A392B1EC0F66700C0145B /* HomeApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeApp.entitlements; sourceTree = "<group>"; };
 		4FAB8222635FB3757FFD7B10 /* Pods_HomeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B0489D8BE9B7F566A4BDC2 /* Pods-HomeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeAppUITests/Pods-HomeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		577DA03148A8FB81AD57EA47 /* Pods-HomeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeApp/Pods-HomeApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +121,7 @@
 		315A38E11EC0DC6F00C0145B /* HomeApp */ = {
 			isa = PBXGroup;
 			children = (
+				315A392B1EC0F66700C0145B /* HomeApp.entitlements */,
 				315A39141EC0EA3C00C0145B /* Utilities */,
 				315A39111EC0E4E300C0145B /* ViewControllers */,
 				315A38E21EC0DC6F00C0145B /* AppDelegate.swift */,
@@ -275,7 +277,13 @@
 				TargetAttributes = {
 					315A38DE1EC0DC6F00C0145B = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = KR829JUQ5K;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					315A38F21EC0DC6F00C0145B = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -644,6 +652,8 @@
 			baseConfigurationReference = 577DA03148A8FB81AD57EA47 /* Pods-HomeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HomeApp/HomeApp.entitlements;
+				DEVELOPMENT_TEAM = KR829JUQ5K;
 				INFOPLIST_FILE = HomeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nearsoft.HomeApp;
@@ -657,6 +667,8 @@
 			baseConfigurationReference = DFE640F61CC786A49C852E27 /* Pods-HomeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HomeApp/HomeApp.entitlements;
+				DEVELOPMENT_TEAM = KR829JUQ5K;
 				INFOPLIST_FILE = HomeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nearsoft.HomeApp;
@@ -742,6 +754,7 @@
 				315A39091EC0DC6F00C0145B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		315A390A1EC0DC6F00C0145B /* Build configuration list for PBXNativeTarget "HomeAppTests" */ = {
 			isa = XCConfigurationList;
@@ -750,6 +763,7 @@
 				315A390C1EC0DC6F00C0145B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		315A390D1EC0DC6F00C0145B /* Build configuration list for PBXNativeTarget "HomeAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -758,6 +772,7 @@
 				315A390F1EC0DC6F00C0145B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
