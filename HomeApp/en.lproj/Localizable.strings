@@ -1,0 +1,8 @@
+//MARK: - Global strings
+"APP-NAME" = "Home App";
+"EMAIL" = "E-mail";
+"PASSWORD" = "Password";
+
+//MARK: - Login strings
+"SIGN-IN" = "Sign in";
+"REGISTER" = "Register";
