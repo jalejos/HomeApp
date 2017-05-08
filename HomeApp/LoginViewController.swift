@@ -36,6 +36,16 @@ class LoginViewController: UIViewController {
         registerButton.setTitle("REGISTER".localized(), for: .normal)
     }
    
+    @IBAction func signInTap(_ sender: Any) {
+        FIRAuth.auth()!.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!) { (user, error) in
+            if let error = error {
+                let alert = UIAlertController(title: "Could not login user", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Click", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
     @IBAction func registerTap(_ sender: Any) {
         FIRAuth.auth()!.createUser(withEmail: emailField.text!, password: passwordField.text!) { user, error in
             if error == nil {
