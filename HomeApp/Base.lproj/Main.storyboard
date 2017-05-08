@@ -56,6 +56,9 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rc3-T7-V9e"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -85,7 +88,7 @@
                         <outlet property="appLabel" destination="H3G-MP-tD4" id="Lpk-j1-abC"/>
                         <outlet property="emailField" destination="dGm-In-hYb" id="XiV-J3-ES3"/>
                         <outlet property="passwordField" destination="16F-QI-YbP" id="WOj-fv-dgY"/>
-                        <outlet property="registerButton" destination="MKW-jI-fbt" id="i6A-ka-AjF"/>
+                        <outlet property="registerButton" destination="MKW-jI-fbt" id="s4W-fH-UuM"/>
                         <outlet property="signinButton" destination="Nz9-DB-VpG" id="Zg7-Fg-qgo"/>
                     </connections>
                 </viewController>

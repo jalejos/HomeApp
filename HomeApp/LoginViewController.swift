@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -30,4 +31,15 @@ class LoginViewController: UIViewController {
         registerButton.setTitle("REGISTER".localized(), for: .normal)
     }
    
+    @IBAction func registerTap(_ sender: Any) {
+        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
+                                   password: passwordField.text!) { user, error in
+                                    if error == nil {
+                                        FIRAuth.auth()!.signIn(withEmail: self.emailField.text!,
+                                                               password: self.passwordField.text!)
+                                    } else {
+                                        print(error)
+                                    }
+        }
+    }
 }
