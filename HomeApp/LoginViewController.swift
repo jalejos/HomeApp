@@ -37,14 +37,14 @@ class LoginViewController: UIViewController {
     }
    
     @IBAction func registerTap(_ sender: Any) {
-        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-                                   password: passwordField.text!) { user, error in
-                                    if error == nil {
-                                        FIRAuth.auth()!.signIn(withEmail: self.emailField.text!,
-                                                               password: self.passwordField.text!)
-                                    } else {
-                                        print(error)
-                                    }
+        FIRAuth.auth()!.createUser(withEmail: emailField.text!, password: passwordField.text!) { user, error in
+            if error == nil {
+                FIRAuth.auth()!.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!)
+            } else {
+                let alert = UIAlertController(title: "Could not register account", message: error?.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Click", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
 }
