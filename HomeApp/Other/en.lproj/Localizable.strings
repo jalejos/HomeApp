@@ -10,3 +10,4 @@
 "SIGN-IN-ERROR-TITLE" = "Could not sign in account";
 "REGISTER-ERROR-TITLE" = "Could not register account";
 "FACEBOOK-LOGIN-LABEL" = "Or sign in using";
+"FACEBOOK-LOGIN-BUTTON" = "Facebook Login";

@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var facebookLabel: UILabel!
+    @IBOutlet weak var facebookButton: UIButton!
     
     //MARK: - Initialization function
     override func viewDidLoad() {
@@ -41,6 +42,7 @@ class LoginViewController: UIViewController {
         signinButton.setTitle("SIGN-IN".localized(), for: .normal)
         registerButton.setTitle("REGISTER".localized(), for: .normal)
         facebookLabel.text = "FACEBOOK-LOGIN-LABEL".localized()
+        facebookButton.setTitle("FACEBOOK-LOGIN-BUTTON".localized(), for: .normal)
     }
    
     //MARK: - UI functions

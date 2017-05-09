@@ -113,6 +113,7 @@
                     <connections>
                         <outlet property="appLabel" destination="H3G-MP-tD4" id="Lpk-j1-abC"/>
                         <outlet property="emailField" destination="dGm-In-hYb" id="XiV-J3-ES3"/>
+                        <outlet property="facebookButton" destination="EgK-uF-ejP" id="F0H-rP-Pa1"/>
                         <outlet property="facebookLabel" destination="mSt-Jg-zha" id="4tj-7s-2g1"/>
                         <outlet property="passwordField" destination="16F-QI-YbP" id="WOj-fv-dgY"/>
                         <outlet property="registerButton" destination="MKW-jI-fbt" id="s4W-fH-UuM"/>
