@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
         passwordField.placeholder = "PASSWORD".localized()
         signinButton.setTitle("SIGN-IN".localized(), for: .normal)
         registerButton.setTitle("REGISTER".localized(), for: .normal)
+        facebookLabel.text = "FACEBOOK-LOGIN-LABEL".localized()
     }
    
     //MARK: - UI functions
