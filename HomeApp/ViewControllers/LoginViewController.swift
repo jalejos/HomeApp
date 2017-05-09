@@ -5,6 +5,8 @@
 //  Created by Alejos on 5/8/17.
 //  Copyright © 2017 Alejos. All rights reserved.
 //
+//  Facebook login icon extracted from "https://icons8.com/web-app/13912/Facebook"
+//
 
 import UIKit
 import FirebaseAuth
@@ -17,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var facebookLabel: UILabel!
     
     //MARK: - Initialization function
     override func viewDidLoad() {
@@ -56,5 +59,8 @@ class LoginViewController: UIViewController {
                 showAlert(title: "REGISTER-ERROR-TITLE".localized(), message: error?.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
         }
+    }
+    
+    @IBAction func facebookTap(_ sender: Any) {
     }
 }
