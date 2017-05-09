@@ -9,6 +9,10 @@ target 'HomeApp' do
   pod 'Firebase', '~> 3.14'
   pod 'Firebase/Auth', '~> 3.1'
 
+  pod 'Bolts', '~> 1.8'
+  pod 'FBSDKCoreKit', '~> 4.20'
+  pod 'FBSDKLoginKit', '~> 4.20'
+
   target 'HomeAppTests' do
     inherit! :search_paths
     # Pods for testing
