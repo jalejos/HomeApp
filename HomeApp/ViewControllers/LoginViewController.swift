@@ -10,13 +10,15 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
+    
+    //MARK: - UI Elements
     @IBOutlet weak var appLabel: UILabel!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
+    //MARK: - Initialization function
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +30,8 @@ class LoginViewController: UIViewController {
         localizeUI()
     }
     
-    func localizeUI() {
+    //MARK: - Private functions
+    private func localizeUI() {
         appLabel.text = "APP-NAME".localized()
         emailField.placeholder = "EMAIL".localized()
         passwordField.placeholder = "PASSWORD".localized()
@@ -36,6 +39,7 @@ class LoginViewController: UIViewController {
         registerButton.setTitle("REGISTER".localized(), for: .normal)
     }
    
+    //MARK: - UI functions
     @IBAction func signInTap(_ sender: Any) {
         FIRAuth.auth()!.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!) { (user, error) in
             if let error = error {
