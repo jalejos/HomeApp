@@ -69,27 +69,52 @@
                                     <constraint firstAttribute="height" constant="100" id="Wfw-Oh-5O7"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or sign in using" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSt-Jg-zha">
+                                <rect key="frame" x="20" y="328" width="164" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgK-uF-ejP">
+                                <rect key="frame" x="204" y="308" width="190" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="eyy-Wz-wJa"/>
+                                </constraints>
+                                <state key="normal" title="Facebook Login" image="facebook-icon">
+                                    <color key="titleColor" red="0.18823529411764706" green="0.22745098039215686" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gAG-OC-lK3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96988660373783264" blue="0.68339831800709427" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="heM-c5-7Kz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3Ca-5Q-bZP"/>
+                            <constraint firstItem="EgK-uF-ejP" firstAttribute="centerY" secondItem="mSt-Jg-zha" secondAttribute="centerY" id="3Tv-Dn-VZH"/>
                             <constraint firstItem="dGm-In-hYb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="8ET-1K-NJc"/>
                             <constraint firstItem="H3G-MP-tD4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cqv-Wi-sYM"/>
+                            <constraint firstItem="EgK-uF-ejP" firstAttribute="leading" secondItem="mSt-Jg-zha" secondAttribute="trailing" constant="20" id="D2C-Id-qOV"/>
                             <constraint firstItem="dGm-In-hYb" firstAttribute="top" secondItem="H3G-MP-tD4" secondAttribute="bottom" constant="80" id="FdS-gs-6hF"/>
+                            <constraint firstItem="mSt-Jg-zha" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="I7x-xm-Irb"/>
                             <constraint firstItem="dGm-In-hYb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ntx-rk-PPi"/>
                             <constraint firstItem="16F-QI-YbP" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="PM4-wx-HGM"/>
+                            <constraint firstItem="EgK-uF-ejP" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="SIt-ak-4fT"/>
+                            <constraint firstItem="heM-c5-7Kz" firstAttribute="top" secondItem="mSt-Jg-zha" secondAttribute="bottom" constant="30" id="Sz7-zz-9ZD"/>
                             <constraint firstItem="H3G-MP-tD4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="500" constant="80" id="WQr-Aa-dvb"/>
+                            <constraint firstItem="mSt-Jg-zha" firstAttribute="top" secondItem="16F-QI-YbP" secondAttribute="bottom" constant="30" id="cPD-V2-tYB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="heM-c5-7Kz" secondAttribute="bottom" constant="20" id="dWn-wy-9uG"/>
                             <constraint firstItem="H3G-MP-tD4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="jrj-fO-Oj1"/>
                             <constraint firstItem="heM-c5-7Kz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="oNr-0z-RcK"/>
                             <constraint firstItem="16F-QI-YbP" firstAttribute="top" secondItem="dGm-In-hYb" secondAttribute="bottom" constant="22" id="qDI-Ob-MOt"/>
                             <constraint firstItem="16F-QI-YbP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qh4-pO-J4u"/>
-                            <constraint firstItem="heM-c5-7Kz" firstAttribute="top" secondItem="16F-QI-YbP" secondAttribute="bottom" constant="80" id="xs7-Fi-xlA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="appLabel" destination="H3G-MP-tD4" id="Lpk-j1-abC"/>
                         <outlet property="emailField" destination="dGm-In-hYb" id="XiV-J3-ES3"/>
+                        <outlet property="facebookButton" destination="EgK-uF-ejP" id="F0H-rP-Pa1"/>
+                        <outlet property="facebookLabel" destination="mSt-Jg-zha" id="4tj-7s-2g1"/>
                         <outlet property="passwordField" destination="16F-QI-YbP" id="WOj-fv-dgY"/>
                         <outlet property="registerButton" destination="MKW-jI-fbt" id="s4W-fH-UuM"/>
                         <outlet property="signinButton" destination="Nz9-DB-VpG" id="Zg7-Fg-qgo"/>
@@ -98,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+            <point key="canvasLocation" x="31.884057971014496" y="37.5"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="EUG-i7-6ai">
@@ -129,4 +154,7 @@
             <point key="canvasLocation" x="781" y="38"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="facebook-icon" width="60" height="60"/>
+    </resources>
 </document>
