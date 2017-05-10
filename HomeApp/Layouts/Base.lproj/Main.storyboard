@@ -232,6 +232,7 @@
         <!--Settings-->
         <scene sceneID="N0E-tf-BBp">
             <objects>
+                <exit id="hcL-TW-IZL" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Kq-Ko-ffD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="tzb-v2-WrP" customClass="SettingsViewController" customModule="HomeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
@@ -244,9 +245,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="Ed8-gU-WDZ">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="oZ1-oz-6mG"/>
-                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="SU5-Dt-XAM"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="oZ1-oz-6mG">
+                            <connections>
+                                <segue destination="hcL-TW-IZL" kind="unwind" unwindAction="unwindToMapWithSegue:" id="HXs-x9-3nw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="SU5-Dt-XAM">
+                            <connections>
+                                <action selector="signOutTap:" destination="tzb-v2-WrP" id="T2Z-eb-veX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="hcL-TW-IZL" kind="unwind" identifier="signOut" unwindAction="unwindToLoginWithSegue:" id="yQr-BW-aJt"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="3193" y="-628"/>

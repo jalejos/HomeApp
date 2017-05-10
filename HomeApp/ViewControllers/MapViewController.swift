@@ -22,4 +22,6 @@ class MapViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func unwindToMap(segue: UIStoryboardSegue) {
+    }
 }

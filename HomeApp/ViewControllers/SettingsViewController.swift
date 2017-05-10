@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingsViewController: UIViewController {
-
+    
+    @IBAction func signOutTap(_ sender: Any) {
+        try! FIRAuth.auth()!.signOut()
+        performSegue(withIdentifier: "signOut", sender: self)
+    }
     
 }
