@@ -11,3 +11,4 @@
 "REGISTER-ERROR-TITLE" = "Could not register account";
 "FACEBOOK-LOGIN-LABEL" = "Or sign in using";
 "FACEBOOK-LOGIN-BUTTON" = "Facebook Login";
+"NO-ACCESS-TOKEN-ERROR" = "Failed to get access token";
