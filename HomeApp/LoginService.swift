@@ -66,4 +66,9 @@ struct LoginService {
         }
     }
     
+    func signOut(completion: @escaping () -> ()) {
+        try! FIRAuth.auth()!.signOut()
+        completion()
+    }
+    
 }

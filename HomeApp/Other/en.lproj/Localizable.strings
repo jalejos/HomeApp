@@ -3,6 +3,13 @@
 "EMAIL" = "E-mail";
 "PASSWORD" = "Password";
 "CLOSE" = "Close";
+"FOR-SALE" = "For sale";
+"FOR-RENT" = "For rent";
+"SAVED-HOMES" = "Favourites";
+"RECENTLY-VIEWED-HOMES" = "Recent homes";
+"YOUR-HOME" = "Your homes";
+"SETTINGS" = "Settings";
+"BACK" = "Back";
 
 //MARK: - Login strings
 "SIGN-IN" = "Sign in";
@@ -13,3 +20,11 @@
 "FACEBOOK-LOGIN-BUTTON" = "Facebook Login";
 "FACEBOOK-LOGIN-ERROR-TITLE" = "Could not login through facebook";
 "NO-ACCESS-TOKEN-ERROR" = "Failed to get access token";
+
+//MARK: - Map view strings
+"MAP-SEARCH-PLACEHOLDER" = "Address, city, ZIP, neighborhood";
+"MENU" = "Menu";
+"FILTER" = "Filter";
+
+//MARK: - Settings strings
+"SIGN-OUT" = "Sign out";
