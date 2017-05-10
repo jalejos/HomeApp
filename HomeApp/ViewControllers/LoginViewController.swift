@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
    
     //MARK: - UI functions
     @IBAction func signInTap(_ sender: Any) {
-        FIRAuth.auth()!.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!) { (user, error) in
+        LoginService.sharedInstance.appSignIn(username: self.emailField.text!, password: self.passwordField.text!) { error in
             if let error = error {
                 showAlert(title: "SIGN-IN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
@@ -56,43 +56,18 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerTap(_ sender: Any) {
-        FIRAuth.auth()!.createUser(withEmail: emailField.text!, password: passwordField.text!) { user, error in
-            if error == nil {
-                FIRAuth.auth()!.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!)
-            } else {
-                showAlert(title: "REGISTER-ERROR-TITLE".localized(), message: error?.localizedDescription, button: "CLOSE".localized(), controller: self)
+        LoginService.sharedInstance.appRegister(username: self.emailField.text!, password: self.passwordField.text!) { error in
+            if let error = error {
+                showAlert(title: "REGISTER-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
         }
     }
     
     @IBAction func facebookTap(_ sender: Any) {
-        let fbLoginManager = FBSDKLoginManager()
-        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+        LoginService.sharedInstance.facebookLogin(controller: self) { error in
             if let error = error {
-                print("Failed to login: \(error.localizedDescription)")
-                return
+                showAlert(title: "FACEBOOK-LOGIN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
-            
-            guard let accessToken = FBSDKAccessToken.current() else {
-                print("Failed to get access token")
-                return
-            }
-            
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-            
-            // Perform login by calling Firebase APIs
-            FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
-                if let error = error {
-                    print("Login error: \(error.localizedDescription)")
-                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
-                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(okayAction)
-                    self.present(alertController, animated: true, completion: nil)
-                    
-                    return
-                }
-            })
-            
         }
     }
 }
