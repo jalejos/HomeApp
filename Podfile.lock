@@ -39,13 +39,15 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.9)
+  - SideMenu (2.3.0)
 
 DEPENDENCIES:
-  - Bolts
-  - FBSDKCoreKit
-  - FBSDKLoginKit
+  - Bolts (~> 1.8)
+  - FBSDKCoreKit (~> 4.20)
+  - FBSDKLoginKit (~> 4.20)
   - Firebase (~> 3.14)
   - Firebase/Auth (~> 3.1)
+  - SideMenu (~> 2.3)
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -58,7 +60,8 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  SideMenu: 43d092cf615cf472f105c5b9867a21beff9fc269
 
-PODFILE CHECKSUM: 5092d7117fb0db3c02d6e51e576ba522812a247a
+PODFILE CHECKSUM: 2b1750bb819d08a7047c3e749069c12ca1539d87
 
 COCOAPODS: 1.1.1

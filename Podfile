@@ -12,6 +12,8 @@ target 'HomeApp' do
   pod 'Bolts', '~> 1.8'
   pod 'FBSDKCoreKit', '~> 4.20'
   pod 'FBSDKLoginKit', '~> 4.20'
+  
+  pod 'SideMenu', '~> 2.3'
 
   target 'HomeAppTests' do
     inherit! :search_paths
