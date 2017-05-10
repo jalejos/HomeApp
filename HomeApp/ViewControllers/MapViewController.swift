@@ -27,11 +27,6 @@ class MapViewController: UIViewController {
         searchBar.placeholder = "MAP-SEARCH-PLACEHOLDER".localized()
     }
     
-    @IBAction func signOutTap(_ sender: Any) {
-        try! FIRAuth.auth()!.signOut()
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func unwindToMap(segue: UIStoryboardSegue) {
     }
 }
