@@ -11,10 +11,13 @@ import FirebaseAuth
 import FBSDKLoginKit
 
 struct LoginService {
-    
+    //MARK: - Singleton
     static var sharedInstance = LoginService()
+    
+    //MARK: - Private variables
     private let noAccessTokenError = NSError.init(domain: "HomeApp", code: 409, userInfo: [NSLocalizedDescriptionKey :  NSLocalizedString("Access Error", value: "NO-ACCESS-TOKEN-ERROR".localized(), comment: "")])
     
+    //MARK: - Public functions
     func activateListener(completion: @escaping () -> ()) {
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
