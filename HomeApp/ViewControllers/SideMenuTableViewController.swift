@@ -26,6 +26,13 @@ class SideMenuTableViewController: UITableViewController {
                             menuOptions.yourHome,
                             menuOptions.settings]
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.title = "APP-NAME".localized()
+    }
+    
+}
 
 extension SideMenuTableViewController {
     // MARK: - Table view data source
