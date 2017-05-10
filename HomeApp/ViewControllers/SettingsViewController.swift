@@ -31,8 +31,9 @@ class SettingsViewController: UIViewController {
     
     //MARK: - UI functions
     @IBAction func signOutTap(_ sender: Any) {
-        try! FIRAuth.auth()!.signOut()
-        performSegue(withIdentifier: "signOut", sender: self)
+        LoginService.sharedInstance.signOut {
+            self.performSegue(withIdentifier: "signOut", sender: self)
+        }
     }
     
 }
