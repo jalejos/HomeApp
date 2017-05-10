@@ -15,6 +15,14 @@ struct LoginService {
     static var sharedInstance = LoginService()
     private let noAccessTokenError = NSError.init(domain: "HomeApp", code: 409, userInfo: [NSLocalizedDescriptionKey :  NSLocalizedString("Access Error", value: "NO-ACCESS-TOKEN-ERROR".localized(), comment: "")])
     
+    func activateListener(completion: @escaping () -> ()) {
+        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+            if user != nil {
+                completion()
+            }
+        }
+    }
+    
     func appSignIn(username: String, password: String, errorHandler: @escaping (Error?) -> ()) {
         FIRAuth.auth()!.signIn(withEmail: username, password: password) { (user, error) in
             if let error = error {
