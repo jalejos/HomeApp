@@ -39,6 +39,22 @@ class SideMenuTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch (menuOptionsArray[indexPath.row]) {
+        case .forSale :
+            break
+        case .forRent :
+            break
+        case .savedHomes:
+            break
+        case .recent:
+            break
+        case .yourHome:
+            break
+        case .settings:
+            performSegue(withIdentifier: "SettingsSegue", sender: self)
+            break
+        }
     }
 
 }
