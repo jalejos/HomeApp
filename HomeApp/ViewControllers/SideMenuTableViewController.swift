@@ -10,6 +10,7 @@ import UIKit
 
 class SideMenuTableViewController: UITableViewController {
     
+    //MARK: - Properties
     enum menuOptions: String {
         case forSale = "FOR-SALE"
         case forRent = "FOR-RENT"
@@ -26,6 +27,7 @@ class SideMenuTableViewController: UITableViewController {
                             menuOptions.yourHome,
                             menuOptions.settings]
 
+    //MARK: - Initialization function
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,8 +36,8 @@ class SideMenuTableViewController: UITableViewController {
     
 }
 
+// MARK: - Table view data source
 extension SideMenuTableViewController {
-    // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return menuOptionsArray.count
