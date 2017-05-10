@@ -225,6 +225,11 @@
                             <constraint firstAttribute="trailing" secondItem="9ub-sJ-KYw" secondAttribute="trailing" id="zEe-ne-QJh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="filterButton" destination="g6K-Q4-B4u" id="F9T-uL-9fc"/>
+                        <outlet property="menuButton" destination="eni-6j-pX3" id="Sad-hw-cTx"/>
+                        <outlet property="searchBar" destination="J4S-BX-2qK" id="Ccg-yL-7kV"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="779.71014492753625" y="37.5"/>
@@ -257,6 +262,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="oZ1-oz-6mG" id="aOI-lF-e4l"/>
+                        <outlet property="signOutButton" destination="SU5-Dt-XAM" id="q5T-mm-fM7"/>
                         <segue destination="hcL-TW-IZL" kind="unwind" identifier="signOut" unwindAction="unwindToLoginWithSegue:" id="yQr-BW-aJt"/>
                     </connections>
                 </viewController>

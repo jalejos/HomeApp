@@ -11,10 +11,20 @@ import FirebaseAuth
 
 class MapViewController: UIViewController {
 
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var filterButton: UIBarButtonItem!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        localizeUI()
+    }
+    
+    func localizeUI() {
+        menuButton.title = "MENU".localized()
+        filterButton.title = "FILTER".localized()
+        searchBar.placeholder = "MAP-SEARCH-PLACEHOLDER".localized()
     }
     
     @IBAction func signOutTap(_ sender: Any) {
