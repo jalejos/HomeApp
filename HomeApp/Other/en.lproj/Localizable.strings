@@ -3,6 +3,12 @@
 "EMAIL" = "E-mail";
 "PASSWORD" = "Password";
 "CLOSE" = "Close";
+"FOR-SALE" = "For sale";
+"FOR-RENT" = "For rent";
+"SAVED-HOMES" = "Favourites";
+"RECENTLY-VIEWED-HOMES" = "Recent homes";
+"YOUR-HOME" = "Your homes";
+"SETTINGS" = "Settings";
 
 //MARK: - Login strings
 "SIGN-IN" = "Sign in";

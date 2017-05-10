@@ -9,26 +9,36 @@
 import UIKit
 
 class SideMenuTableViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    enum menuOptions: String {
+        case forSale = "FOR-SALE"
+        case forRent = "FOR-RENT"
+        case savedHomes = "SAVED-HOMES"
+        case recent = "RECENTLY-VIEWED-HOMES"
+        case yourHome = "YOUR-HOME"
+        case settings = "SETTINGS"
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    let menuOptionsArray = [menuOptions.forSale,
+                            menuOptions.forRent,
+                            menuOptions.savedHomes,
+                            menuOptions.recent,
+                            menuOptions.yourHome,
+                            menuOptions.settings]
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return menuOptionsArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = menuOptionsArray[indexPath.row].rawValue.localized()
+        return cell
+    }
+    
     }
 
 }
