@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import MapKit
 
 class MapViewController: UIViewController {
 
@@ -15,12 +15,17 @@ class MapViewController: UIViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var filterButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var mapView: MKMapView!
+    
+    //MARK: - Private properties
+    private let regionRadius: CLLocationDistance = 1000
     
     //MARK: - Initialization function
     override func viewDidLoad() {
         super.viewDidLoad()
 
         localizeUI()
+        focusCurrentLocation()
     }
     
     //MARK: - Private functions
@@ -28,6 +33,17 @@ class MapViewController: UIViewController {
         menuButton.title = "MENU".localized()
         filterButton.title = "FILTER".localized()
         searchBar.placeholder = "MAP-SEARCH-PLACEHOLDER".localized()
+    }
+    
+    private func focusCurrentLocation() {
+        LocationService.sharedInstance.getLocation { currentLocation in
+            self.focusLocation(location: currentLocation)
+        }
+    }
+    
+    private func focusLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
     
     //MARK: - Unwind function
