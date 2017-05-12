@@ -98,18 +98,14 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz9-DB-VpG">
                                         <rect key="frame" x="0.0" y="0.0" width="187" height="100"/>
-                                        <state key="normal" title="Sign in">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
+                                        <state key="normal" title="Sign in"/>
                                         <connections>
                                             <action selector="signInTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cse-Jf-FqA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKW-jI-fbt">
                                         <rect key="frame" x="187" y="0.0" width="187" height="100"/>
-                                        <state key="normal" title="Register">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
+                                        <state key="normal" title="Register"/>
                                         <connections>
                                             <action selector="registerTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rc3-T7-V9e"/>
                                         </connections>
