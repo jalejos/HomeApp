@@ -16,10 +16,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var appLabel: UILabel!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var signinButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var facebookLabel: UILabel!
     @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var signinButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     
     //MARK: - Initialization function
     override func viewDidLoad() {
@@ -43,10 +43,10 @@ class LoginViewController: UIViewController {
     }
    
     //MARK: - UI functions
-    @IBAction func signInTap(_ sender: Any) {
+    @IBAction func signinTap(_ sender: Any) {
         LoginService.sharedInstance.appSignIn(username: self.emailField.text!, password: self.passwordField.text!) { error in
             if let error = error {
-                showAlert(title: "SIGN-IN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+               AlertViewUtility.showAlert(title: "SIGN-IN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
         }
     }
@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
     @IBAction func registerTap(_ sender: Any) {
         LoginService.sharedInstance.appRegister(username: self.emailField.text!, password: self.passwordField.text!) { error in
             if let error = error {
-                showAlert(title: "REGISTER-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+                AlertViewUtility.showAlert(title: "REGISTER-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
         }
     }
@@ -62,12 +62,8 @@ class LoginViewController: UIViewController {
     @IBAction func facebookTap(_ sender: Any) {
         LoginService.sharedInstance.facebookLogin(controller: self) { error in
             if let error = error {
-                showAlert(title: "FACEBOOK-LOGIN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+                AlertViewUtility.showAlert(title: "FACEBOOK-LOGIN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
         }
-    }
-    
-    //MARK: - Unwind function
-    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     }
 }

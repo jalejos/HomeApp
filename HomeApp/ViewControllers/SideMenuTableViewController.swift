@@ -11,7 +11,7 @@ import UIKit
 class SideMenuTableViewController: UITableViewController {
     
     //MARK: - Properties
-    enum menuOptions: String {
+    enum MenuOptions: String {
         case forSale = "FOR-SALE"
         case forRent = "FOR-RENT"
         case savedHomes = "SAVED-HOMES"
@@ -20,18 +20,33 @@ class SideMenuTableViewController: UITableViewController {
         case settings = "SETTINGS"
     }
     
-    let menuOptionsArray = [menuOptions.forSale,
-                            menuOptions.forRent,
-                            menuOptions.savedHomes,
-                            menuOptions.recent,
-                            menuOptions.yourHome,
-                            menuOptions.settings]
+    let menuOptionsArray: [MenuOptions] = [.forSale,
+                            .forRent,
+                            .savedHomes,
+                            .recent,
+                            .yourHome,
+                            .settings]
 
     //MARK: - Initialization function
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "APP-NAME".localized()
+    }
+    
+    
+    //MARK: - Private functions
+    fileprivate func executeSegue(_ segue: String) {
+        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            if let navigation = topController as? UINavigationController {
+                if let mapViewController = navigation.topViewController as? MapViewController {
+                    mapViewController.performSegue(withIdentifier: segue, sender: mapViewController)
+                }
+            }
+        }
     }
     
 }
@@ -62,7 +77,9 @@ extension SideMenuTableViewController {
         case .yourHome:
             break
         case .settings:
-            performSegue(withIdentifier: "SettingsSegue", sender: self)
+            dismiss(animated: true, completion: {
+                self.executeSegue(SegueIdentifier.settings.rawValue)
+            })
             break
         }
     }

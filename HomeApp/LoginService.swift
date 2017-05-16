@@ -18,6 +18,15 @@ struct LoginService {
     private let noAccessTokenError = NSError.init(domain: "HomeApp", code: 409, userInfo: [NSLocalizedDescriptionKey :  NSLocalizedString("Access Error", value: "NO-ACCESS-TOKEN-ERROR".localized(), comment: "")])
     
     //MARK: - Public functions
+    
+    func userIsLoggedIn() -> Bool {
+        if let _ = FIRAuth.auth()!.currentUser {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func activateListener(completion: @escaping () -> ()) {
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
