@@ -26,8 +26,7 @@ class LocationService: NSObject {
         return _locationManager
     }()
     
-    //MARK: Public properties
-    var returnLocation: (CLLocation) -> () = {_ in}
+    fileprivate var returnLocation: (CLLocation) -> () = {_ in}
     
     //MARK: - Public functions
     func getLocation(completion: @escaping (CLLocation) -> ()) {
