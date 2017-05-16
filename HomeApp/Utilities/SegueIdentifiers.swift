@@ -8,4 +8,6 @@
 
 enum SegueIdentifier: String {
     case signIn
+    case signOut
+    case settings
 }

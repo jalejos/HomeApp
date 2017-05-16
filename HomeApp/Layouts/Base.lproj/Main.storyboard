@@ -92,7 +92,7 @@
                         <outlet property="mapView" destination="X47-NS-rtr" id="xZB-9C-EIQ"/>
                         <outlet property="menuButton" destination="eni-6j-pX3" id="Sad-hw-cTx"/>
                         <outlet property="searchBar" destination="J4S-BX-2qK" id="Ccg-yL-7kV"/>
-                        <segue destination="R7H-wt-5RN" kind="show" identifier="settingsSegue" id="YEc-5Z-zpp"/>
+                        <segue destination="R7H-wt-5RN" kind="show" identifier="settings" id="YEc-5Z-zpp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sux-DR-yav" userLabel="First Responder" sceneMemberID="firstResponder"/>

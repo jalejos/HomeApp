@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
     //MARK: - UI functions
     @IBAction func signOutTap(_ sender: Any) {
         LoginService.sharedInstance.signOut {
-            self.performSegue(withIdentifier: "signOut", sender: self)
+            self.performSegue(withIdentifier: SegueIdentifier.signOut.rawValue, sender: self)
         }
     }
     
