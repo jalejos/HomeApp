@@ -26,14 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if LoginService.sharedInstance.userIsLoggedIn() {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "mapViewController")
+            let initialViewController = storyboard.instantiateInitialViewController()
             
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         } else {
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            let initialViewController = storyboard.instantiateInitialViewController()
             
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
