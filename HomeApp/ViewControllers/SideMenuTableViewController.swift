@@ -34,6 +34,8 @@ class SideMenuTableViewController: UITableViewController {
         navigationItem.title = "APP-NAME".localized()
     }
     
+    
+    //MARK: - Private functions
     fileprivate func executeSegue(_ segue: String) {
         if var topController = UIApplication.shared.keyWindow?.rootViewController {
             while let presentedViewController = topController.presentedViewController {
