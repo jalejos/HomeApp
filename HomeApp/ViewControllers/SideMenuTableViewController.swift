@@ -11,7 +11,7 @@ import UIKit
 class SideMenuTableViewController: UITableViewController {
     
     //MARK: - Properties
-    enum menuOptions: String {
+    enum MenuOptions: String {
         case forSale = "FOR-SALE"
         case forRent = "FOR-RENT"
         case savedHomes = "SAVED-HOMES"
@@ -20,12 +20,12 @@ class SideMenuTableViewController: UITableViewController {
         case settings = "SETTINGS"
     }
     
-    let menuOptionsArray = [menuOptions.forSale,
-                            menuOptions.forRent,
-                            menuOptions.savedHomes,
-                            menuOptions.recent,
-                            menuOptions.yourHome,
-                            menuOptions.settings]
+    let menuOptionsArray: [MenuOptions] = [.forSale,
+                            .forRent,
+                            .savedHomes,
+                            .recent,
+                            .yourHome,
+                            .settings]
 
     //MARK: - Initialization function
     override func viewDidLoad() {
