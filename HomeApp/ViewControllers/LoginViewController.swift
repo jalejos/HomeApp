@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
     @IBAction func signinTap(_ sender: Any) {
         LoginService.sharedInstance.appSignIn(username: self.emailField.text!, password: self.passwordField.text!) { error in
             if let error = error {
-                showAlert(title: "SIGN-IN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+               AlertViewUtility.showAlert(title: "SIGN-IN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
         }
     }
@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
     @IBAction func registerTap(_ sender: Any) {
         LoginService.sharedInstance.appRegister(username: self.emailField.text!, password: self.passwordField.text!) { error in
             if let error = error {
-                showAlert(title: "REGISTER-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+                AlertViewUtility.showAlert(title: "REGISTER-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
         }
     }
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
     @IBAction func facebookTap(_ sender: Any) {
         LoginService.sharedInstance.facebookLogin(controller: self) { error in
             if let error = error {
-                showAlert(title: "FACEBOOK-LOGIN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+                AlertViewUtility.showAlert(title: "FACEBOOK-LOGIN-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
         }
     }
