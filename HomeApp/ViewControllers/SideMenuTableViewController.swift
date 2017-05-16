@@ -34,6 +34,19 @@ class SideMenuTableViewController: UITableViewController {
         navigationItem.title = "APP-NAME".localized()
     }
     
+    fileprivate func executeSegue(_ segue: String) {
+        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            if let navigation = topController as? UINavigationController {
+                if let mapViewController = navigation.topViewController as? MapViewController {
+                    mapViewController.performSegue(withIdentifier: segue, sender: mapViewController)
+                }
+            }
+        }
+    }
+    
 }
 
 // MARK: - Table view data source
@@ -62,7 +75,9 @@ extension SideMenuTableViewController {
         case .yourHome:
             break
         case .settings:
-            performSegue(withIdentifier: "SettingsSegue", sender: self)
+            dismiss(animated: true, completion: {
+                self.executeSegue("settingsSegue")
+            })
             break
         }
     }

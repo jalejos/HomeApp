@@ -35,4 +35,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBAction func backButtonTap(_ sender: Any) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
 }
