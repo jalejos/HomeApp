@@ -22,17 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         if LoginService.sharedInstance.userIsLoggedIn() {
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "mapViewController")
             
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
+        } else {
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
             
-            return true
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
         }
         
         return true

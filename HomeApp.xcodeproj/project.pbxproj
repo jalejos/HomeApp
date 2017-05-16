@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		314884341ECA5404009E7994 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314884331ECA5404009E7994 /* Login.storyboard */; };
 		315A38E31EC0DC6F00C0145B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A38E21EC0DC6F00C0145B /* AppDelegate.swift */; };
 		315A38E81EC0DC6F00C0145B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315A38E61EC0DC6F00C0145B /* Main.storyboard */; };
 		315A38EA1EC0DC6F00C0145B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315A38E91EC0DC6F00C0145B /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		10DBA406D1FB5C5364A525D4 /* Pods_HomeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BEF921339D39CD71D7135F /* Pods-HomeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeAppUITests/Pods-HomeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		28B43500DF33E0C1BEF3A741 /* Pods-HomeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeAppTests/Pods-HomeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		314884331ECA5404009E7994 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		315A38DF1EC0DC6F00C0145B /* HomeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		315A38E21EC0DC6F00C0145B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		315A38E71EC0DC6F00C0145B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				315A39361EC26BA600C0145B /* Services */,
-				315A39341EC1328E00C0145B /* Layouts */,
+				315A39341EC1328E00C0145B /* Storyboards */,
 				315A39351EC132B000C0145B /* Other */,
 				315A39141EC0EA3C00C0145B /* Utilities */,
 				315A39111EC0E4E300C0145B /* ViewControllers */,
@@ -197,12 +199,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		315A39341EC1328E00C0145B /* Layouts */ = {
+		315A39341EC1328E00C0145B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				315A38EB1EC0DC6F00C0145B /* LaunchScreen.storyboard */,
 				315A38E61EC0DC6F00C0145B /* Main.storyboard */,
+				314884331ECA5404009E7994 /* Login.storyboard */,
 			);
+			name = Storyboards;
 			path = Layouts;
 			sourceTree = "<group>";
 		};
@@ -373,6 +377,7 @@
 			files = (
 				315A38ED1EC0DC6F00C0145B /* LaunchScreen.storyboard in Resources */,
 				315A39221EC0ED8A00C0145B /* Localizable.strings in Resources */,
+				314884341ECA5404009E7994 /* Login.storyboard in Resources */,
 				315A38EA1EC0DC6F00C0145B /* Assets.xcassets in Resources */,
 				315A38E81EC0DC6F00C0145B /* Main.storyboard in Resources */,
 				315A392A1EC0F21100C0145B /* GoogleService-Info.plist in Resources */,
