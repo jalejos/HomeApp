@@ -11,7 +11,6 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     //MARK: - UI Elements
-    @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     
     //MARK: - Initialization function
@@ -24,7 +23,6 @@ class SettingsViewController: UIViewController {
     //MARK: - Private functions
     private func localizeUI() {
         navigationItem.title = "SETTINGS".localized()
-        backButton.title = "BACK".localized()
         signOutButton.title = "SIGN-OUT".localized()
     }
     
@@ -35,7 +33,4 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func backButtonTap(_ sender: Any) {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
 }
