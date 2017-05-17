@@ -29,6 +29,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="xvd-B9-1eo" id="qPC-pA-pMr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Cb-w6-9eb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,6 +53,9 @@
                     <navigationItem key="navigationItem" title="Add/Edit Home" id="SVa-yq-DIM">
                         <barButtonItem key="rightBarButtonItem" title="Save/Submit" id="eZ4-R5-sXM"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmButton" destination="eZ4-R5-sXM" id="ddZ-un-nGb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phs-25-szR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

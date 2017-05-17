@@ -10,8 +10,16 @@ import UIKit
 
 class HomeFormViewController: UIViewController {
 
+    @IBOutlet weak var confirmButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        localizeUI()
+    }
+    
+    private func localizeUI() {
+        navigationItem.title = "ADD-HOME".localized()
+        confirmButton.title = "SUBMIT".localized()
     }
 }

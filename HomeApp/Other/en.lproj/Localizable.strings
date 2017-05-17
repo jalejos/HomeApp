@@ -10,6 +10,7 @@
 "YOUR-HOME" = "Your homes";
 "SETTINGS" = "Settings";
 "BACK" = "Back";
+"SUBMIT" = "Submit";
 
 //MARK: - Login strings
 "SIGN-IN" = "Sign in";
@@ -28,3 +29,6 @@
 
 //MARK: - Settings strings
 "SIGN-OUT" = "Sign out";
+
+//MARK: - Your Home strings
+"ADD-HOME" = "Add home";
