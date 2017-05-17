@@ -1,5 +1,5 @@
 //
-//  AddHomeViewController.swift
+//  HomeFormViewController.swift
 //  HomeApp
 //
 //  Created by Alejos on 5/17/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddHomeViewController: UIViewController {
+class HomeFormViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

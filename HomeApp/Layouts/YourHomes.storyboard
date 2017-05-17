@@ -23,12 +23,37 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Your Homes" id="Xgc-69-2lR">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="xvd-B9-1eo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="xvd-B9-1eo">
+                            <connections>
+                                <segue destination="wA7-sH-HGm" kind="show" id="WVv-M7-0eL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Cb-w6-9eb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-49" y="212"/>
+        </scene>
+        <!--Add/Edit Home-->
+        <scene sceneID="UhT-sY-q9i">
+            <objects>
+                <viewController id="wA7-sH-HGm" customClass="HomeFormViewController" customModule="HomeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EI5-9n-3Pa"/>
+                        <viewControllerLayoutGuide type="bottom" id="pTY-Yc-J8p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="flb-Ln-1D6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add/Edit Home" id="SVa-yq-DIM">
+                        <barButtonItem key="rightBarButtonItem" title="Save/Submit" id="eZ4-R5-sXM"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Phs-25-szR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="212"/>
         </scene>
     </scenes>
 </document>
