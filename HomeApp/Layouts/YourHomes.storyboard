@@ -12,7 +12,7 @@
         <!--Your Homes-->
         <scene sceneID="R66-GT-b3K">
             <objects>
-                <viewController id="0g1-oz-JE3" customClass="AddHomeViewController" customModule="HomeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0g1-oz-JE3" customClass="YourHomesViewController" customModule="HomeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="La7-eO-Dk7"/>
                         <viewControllerLayoutGuide type="bottom" id="e3d-14-Hem"/>

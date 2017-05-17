@@ -76,7 +76,7 @@ extension SideMenuTableViewController {
             break
         case .yourHome:
             dismiss(animated: true, completion: {
-                self.executeSegue(SegueIdentifier.addHome.rawValue)
+                self.executeSegue(SegueIdentifier.yourHomes.rawValue)
             })
             break
         case .settings:

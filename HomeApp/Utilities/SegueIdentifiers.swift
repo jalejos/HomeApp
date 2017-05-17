@@ -10,5 +10,5 @@ enum SegueIdentifier: String {
     case signIn
     case signOut
     case settings
-    case addHome
+    case yourHomes
 }

@@ -93,7 +93,7 @@
                         <outlet property="menuButton" destination="eni-6j-pX3" id="Sad-hw-cTx"/>
                         <outlet property="searchBar" destination="J4S-BX-2qK" id="Ccg-yL-7kV"/>
                         <segue destination="R7H-wt-5RN" kind="show" identifier="settings" id="YEc-5Z-zpp"/>
-                        <segue destination="2Ei-GF-4Cl" kind="show" identifier="addHome" id="TO5-ib-rQd"/>
+                        <segue destination="2Ei-GF-4Cl" kind="show" identifier="yourHomes" id="TO5-ib-rQd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sux-DR-yav" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -108,10 +108,10 @@
             </objects>
             <point key="canvasLocation" x="1603" y="37"/>
         </scene>
-        <!--AddHome-->
+        <!--YourHomes-->
         <scene sceneID="lwV-5K-XDb">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddHome" id="2Ei-GF-4Cl" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="YourHomes" id="2Ei-GF-4Cl" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvn-es-Gv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1601" y="107"/>
