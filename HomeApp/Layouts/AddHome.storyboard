@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Home View Controller-->
+        <!--Your Homes-->
         <scene sceneID="R66-GT-b3K">
             <objects>
                 <viewController id="0g1-oz-JE3" customClass="AddHomeViewController" customModule="HomeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,6 +22,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Your Homes" id="Xgc-69-2lR">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="xvd-B9-1eo"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Cb-w6-9eb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
