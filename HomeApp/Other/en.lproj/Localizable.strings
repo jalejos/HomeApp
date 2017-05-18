@@ -3,7 +3,9 @@
 "EMAIL" = "E-mail";
 "PASSWORD" = "Password";
 "CLOSE" = "Close";
+"SALE" = "Sale";
 "FOR-SALE" = "For sale";
+"RENT" = "Rent";
 "FOR-RENT" = "For rent";
 "SAVED-HOMES" = "Favourites";
 "RECENTLY-VIEWED-HOMES" = "Recent homes";

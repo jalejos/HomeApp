@@ -29,6 +29,11 @@ class HomeFormViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var priceField: UITextField!
     
+    private enum TypeHouses: Int {
+        case rent
+        case sale
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,12 +45,14 @@ class HomeFormViewController: UIViewController {
         confirmButton.title = "SUBMIT".localized()
         selectLabel.text = "SELECT-LOCATION-LABEL".localized()
         typeHouseLabel.text = "TYPE-HOUSE-FORM-LABEL".localized()
+        typeHouseSegmentedControl.setTitle("RENT".localized(), forSegmentAt: TypeHouses.rent.rawValue)
+        typeHouseSegmentedControl.setTitle("SALE".localized(), forSegmentAt: TypeHouses.sale.rawValue)
         addressLabel.text = "ADDRESS".localized()
         addressField.placeholder = "ADDRESS".localized()
         stateLabel.text = "STATE".localized()
-        stateField.text = "STATE".localized()
+        stateField.placeholder = "STATE".localized()
         cityLabel.text = "CITY".localized()
-        cityField.text = "CITY".localized()
+        cityField.placeholder = "CITY".localized()
         bedsLabel.text = "BEDS-LABEL".localized()
         bathsLabel.text = "BATHS-LABEL".localized()
         descriptionLabel.text = "DESCRIPTION".localized()
