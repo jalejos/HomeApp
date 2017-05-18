@@ -11,10 +11,11 @@ import UIKit
 class HomeFormViewController: UIViewController {
 
     @IBOutlet weak var confirmButton: UIBarButtonItem!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         localizeUI()
     }
     
