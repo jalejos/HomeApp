@@ -116,16 +116,16 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sw1-Se-wD0">
-                                        <rect key="frame" x="16" y="522" width="335" height="22"/>
+                                        <rect key="frame" x="24" y="522" width="327" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Number of beds" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5V-vk-hPE">
-                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IWX-t2-CVe">
-                                                <rect key="frame" x="167.5" y="0.0" width="167.5" height="22"/>
+                                                <rect key="frame" x="163.5" y="0.0" width="163.5" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -140,16 +140,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUF-cI-lNY">
-                                        <rect key="frame" x="16" y="552" width="335" height="22"/>
+                                        <rect key="frame" x="24" y="552" width="327" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Number of baths" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyO-X3-Pxw">
-                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hnT-VR-9jd">
-                                                <rect key="frame" x="167.5" y="0.0" width="167.5" height="22"/>
+                                                <rect key="frame" x="163.5" y="0.0" width="163.5" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -173,16 +173,16 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exh-Gn-FnA" userLabel="PriceStack">
-                                        <rect key="frame" x="16" y="695.5" width="335" height="22"/>
+                                        <rect key="frame" x="24" y="695.5" width="327" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biH-c9-IKA">
-                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oD7-jX-z7W">
-                                                <rect key="frame" x="167.5" y="0.0" width="167.5" height="22"/>
+                                                <rect key="frame" x="163.5" y="0.0" width="163.5" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -230,10 +230,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="fQa-vG-fR8" secondAttribute="trailing" constant="8" id="1j6-nq-Cxq"/>
                             <constraint firstItem="ndC-pm-5Bt" firstAttribute="leading" secondItem="flb-Ln-1D6" secondAttribute="leadingMargin" constant="8" id="27B-6z-vCe"/>
                             <constraint firstAttribute="bottom" secondItem="edH-EI-OO3" secondAttribute="bottom" id="69G-pP-RTh"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Sw1-Se-wD0" secondAttribute="leading" id="6vf-Cl-vFK"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Sw1-Se-wD0" secondAttribute="leading" constant="-8" id="6vf-Cl-vFK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sw1-Se-wD0" secondAttribute="trailing" constant="8" id="77s-8c-ukJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xUF-cI-lNY" secondAttribute="trailing" constant="8" id="7sA-ge-CEP"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="exh-Gn-FnA" secondAttribute="leading" id="88m-az-FoE"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="exh-Gn-FnA" secondAttribute="leading" constant="-8" id="88m-az-FoE"/>
                             <constraint firstItem="edH-EI-OO3" firstAttribute="top" secondItem="EI5-9n-3Pa" secondAttribute="bottom" id="8ed-dS-7vs"/>
                             <constraint firstItem="fQa-vG-fR8" firstAttribute="leading" secondItem="flb-Ln-1D6" secondAttribute="leadingMargin" constant="8" id="AYH-wA-gEc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sSR-NV-JSo" secondAttribute="trailing" constant="8" id="CAE-nD-2xX"/>
@@ -257,7 +257,7 @@
                             <constraint firstItem="kHY-A5-m8X" firstAttribute="leading" secondItem="flb-Ln-1D6" secondAttribute="leadingMargin" constant="12" id="tM4-tL-Dzd"/>
                             <constraint firstItem="v8e-Sm-MTi" firstAttribute="leading" secondItem="flb-Ln-1D6" secondAttribute="leadingMargin" constant="8" id="tWi-8D-kje"/>
                             <constraint firstAttribute="trailingMargin" secondItem="voV-NN-G4L" secondAttribute="trailing" constant="8" id="xeI-xJ-lMF"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="xUF-cI-lNY" secondAttribute="leading" id="zZn-Gt-s3H"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="xUF-cI-lNY" secondAttribute="leading" constant="-8" id="zZn-Gt-s3H"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add/Edit Home" id="SVa-yq-DIM">
