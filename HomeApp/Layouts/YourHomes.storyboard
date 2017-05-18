@@ -72,6 +72,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-Fs-4uT">
+                                        <rect key="frame" x="266" y="298" width="85" height="29"/>
+                                        <segments>
+                                            <segment title="Rent"/>
+                                            <segment title="Sale"/>
+                                        </segments>
+                                    </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3I-RB-Qba">
                                         <rect key="frame" x="24" y="334" width="327" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -191,13 +198,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-Fs-4uT">
-                                        <rect key="frame" x="266" y="298" width="85" height="29"/>
-                                        <segments>
-                                            <segment title="Rent"/>
-                                            <segment title="Sale"/>
-                                        </segments>
-                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -266,8 +266,24 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="750"/>
                     <connections>
+                        <outlet property="addressField" destination="v8e-Sm-MTi" id="IHr-lM-f6Z"/>
+                        <outlet property="addressLabel" destination="A3I-RB-Qba" id="C2q-jg-5yb"/>
+                        <outlet property="bathsField" destination="hnT-VR-9jd" id="dSm-92-00W"/>
+                        <outlet property="bathsLabel" destination="qyO-X3-Pxw" id="Eph-T9-CFw"/>
+                        <outlet property="bedsField" destination="IWX-t2-CVe" id="n4q-jf-iDP"/>
+                        <outlet property="bedsLabel" destination="v5V-vk-hPE" id="DXp-a5-u5s"/>
+                        <outlet property="cityField" destination="2iG-38-jpR" id="sWi-Pm-huX"/>
+                        <outlet property="cityLabel" destination="fQa-vG-fR8" id="Bhp-hK-th8"/>
                         <outlet property="confirmButton" destination="eZ4-R5-sXM" id="ddZ-un-nGb"/>
-                        <outlet property="scrollView" destination="edH-EI-OO3" id="kUo-Ta-ckL"/>
+                        <outlet property="descriptionLabel" destination="Gjh-BW-Sv3" id="S21-kD-5IC"/>
+                        <outlet property="descriptionTextView" destination="voV-NN-G4L" id="eaT-gR-pIY"/>
+                        <outlet property="priceField" destination="oD7-jX-z7W" id="IiD-Rt-keL"/>
+                        <outlet property="priceLabel" destination="biH-c9-IKA" id="VST-8W-V8b"/>
+                        <outlet property="selectLabel" destination="sSR-NV-JSo" id="uZv-vb-ixx"/>
+                        <outlet property="stateField" destination="ndC-pm-5Bt" id="zzr-EN-qrp"/>
+                        <outlet property="stateLabel" destination="Sw6-AF-6l2" id="zsI-tA-FsJ"/>
+                        <outlet property="typeHouseLabel" destination="kHY-A5-m8X" id="Uyl-2I-35f"/>
+                        <outlet property="typeHouseSegmentedControl" destination="B3j-Fs-4uT" id="wnX-0u-eLv"/>
                     </connections>
                 </viewController>
                 <stackView opaque="NO" contentMode="scaleToFill" id="fKC-3E-sS4">

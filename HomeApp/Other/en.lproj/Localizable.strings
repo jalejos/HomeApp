@@ -30,5 +30,13 @@
 //MARK: - Settings strings
 "SIGN-OUT" = "Sign out";
 
-//MARK: - Your Home strings
+//MARK: - Home strings
 "ADD-HOME" = "Add home";
+"SELECT-LOCATION-LABEL" = "Select your property's location (Optional)";
+"TYPE-HOUSE-FORM-LABEL" = "This house is for:";
+"ADDRESS" = "Address";
+"STATE" = "State";
+"BEDS-LABEL" = "# of beds";
+"BATHS-LABEL" = "# of baths";
+"DESCRIPTION" = "Description";
+"PRICE" = "Price";
