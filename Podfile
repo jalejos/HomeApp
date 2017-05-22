@@ -8,8 +8,9 @@ target 'HomeApp' do
   # Pods for HomeApp
   pod 'Firebase', '~> 3.14'
   pod 'Firebase/Auth', '~> 3.1'
+  pod 'Firebase/Database', '~> 3.1'
   
-  pod 'ObjectMapper'. '~> 2.2'
+  pod 'ObjectMapper', '~> 2.2'
 
   pod 'Bolts', '~> 1.8'
   pod 'FBSDKCoreKit', '~> 4.20'
