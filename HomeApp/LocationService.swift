@@ -25,24 +25,38 @@ class LocationService: NSObject {
         _locationManager.distanceFilter = 10.0
         return _locationManager
     }()
-    
+    fileprivate let defaultLocation = CLLocation.init(latitude: 29.175, longitude: -111.3583)
     fileprivate var returnLocation: (CLLocation) -> () = {_ in}
+    fileprivate var currentLocation: CLLocation?
     
-    //MARK: - Public functions
+    //MARK: - Functions
+    //MARK: Public functions
     func getLocation(completion: @escaping (CLLocation) -> ()) {
+        if let currentLocation = currentLocation {
+            completion(currentLocation)
+            return
+        }
         returnLocation = completion
         locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
             case .notDetermined, .restricted, .denied:
-                returnLocation(CLLocation.init(latitude: 29.175, longitude: -111.3583))
+                updateCurrentLocation(newLocation: defaultLocation)
+                break
             case .authorizedAlways, .authorizedWhenInUse:
                 locationManager.requestLocation()
+                break
             }
         } else {
-            returnLocation(CLLocation.init(latitude: 29.175, longitude: -111.3583))
+            updateCurrentLocation(newLocation: defaultLocation)
         }
+    }
+    
+    //MARK: Private functions
+    fileprivate func updateCurrentLocation(newLocation: CLLocation) {
+        currentLocation = newLocation
+        returnLocation(currentLocation!)
     }
 }
 
@@ -50,10 +64,10 @@ class LocationService: NSObject {
 //MARK: - CLLocationManagerDelegate
 extension LocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        returnLocation(locations[0])
+        updateCurrentLocation(newLocation: locations.last!)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        returnLocation(CLLocation.init(latitude: 29.175, longitude: -111.3583))
+        updateCurrentLocation(newLocation: defaultLocation)
     }
 }
