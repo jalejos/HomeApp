@@ -58,4 +58,21 @@ class HomeFormViewController: UIViewController {
         descriptionLabel.text = "DESCRIPTION".localized()
         priceLabel.text = "PRICE".localized()
     }
+    
+    @IBAction func submitTap(_ sender: Any) {
+        guard let typeHouse = Int(priceField.text!), let address = addressField.text, let state = stateField.text, let city = cityField.text,
+            let beds = Int(bedsField.text!), let baths = Int(bathsField.text!), let description = descriptionTextView.text, let price = Int(priceField.text!)
+            else {
+                AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: "ADD-HOUSE-INCOMPLETE-SUBMIT".localized(),
+                                           button: "CLOSE".localized(), controller: self)
+                return
+        }
+
+        HouseService.addHouse(typeHouse: typeHouse, address: address, state: state, city: city, beds: beds, baths: baths,
+                              description: description, price: price) { error in
+            if let error = error {
+                AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+            }
+        }
+    }
 }

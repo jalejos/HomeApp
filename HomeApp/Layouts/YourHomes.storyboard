@@ -261,7 +261,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add/Edit Home" id="SVa-yq-DIM">
-                        <barButtonItem key="rightBarButtonItem" title="Save/Submit" id="eZ4-R5-sXM"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save/Submit" id="eZ4-R5-sXM">
+                            <connections>
+                                <action selector="submitTap:" destination="wA7-sH-HGm" id="rdh-WS-Aay"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="750"/>
