@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MapKit
 
 class HomeFormViewController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var confirmButton: UIBarButtonItem!
     @IBOutlet weak var selectLabel: UILabel!
     @IBOutlet weak var typeHouseLabel: UILabel!
@@ -29,6 +31,10 @@ class HomeFormViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var priceField: UITextField!
     
+    
+    //MARK: - Private properties
+    private let regionRadius: CLLocationDistance = 1000
+    
     private enum TypeHouses: Int {
         case rent
         case sale
@@ -38,6 +44,7 @@ class HomeFormViewController: UIViewController {
         super.viewDidLoad()
         
         localizeUI()
+        focusMapView()
     }
     
     private func localizeUI() {
@@ -57,6 +64,14 @@ class HomeFormViewController: UIViewController {
         bathsLabel.text = "BATHS-LABEL".localized()
         descriptionLabel.text = "DESCRIPTION".localized()
         priceLabel.text = "PRICE".localized()
+    }
+    
+    private func focusMapView() {
+        let locationService = LocationService()
+        LocationService.sharedInstance.getLocation { location in
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, self.regionRadius * 2.0, self.regionRadius * 2.0)
+            self.mapView.setRegion(coordinateRegion, animated: true)
+        }
     }
     
     @IBAction func submitTap(_ sender: Any) {

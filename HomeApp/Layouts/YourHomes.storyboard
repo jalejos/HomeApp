@@ -281,6 +281,7 @@
                         <outlet property="confirmButton" destination="eZ4-R5-sXM" id="ddZ-un-nGb"/>
                         <outlet property="descriptionLabel" destination="Gjh-BW-Sv3" id="S21-kD-5IC"/>
                         <outlet property="descriptionTextView" destination="voV-NN-G4L" id="eaT-gR-pIY"/>
+                        <outlet property="mapView" destination="JZt-11-GWE" id="MWr-NO-jWj"/>
                         <outlet property="priceField" destination="oD7-jX-z7W" id="IiD-Rt-keL"/>
                         <outlet property="priceLabel" destination="biH-c9-IKA" id="VST-8W-V8b"/>
                         <outlet property="selectLabel" destination="sSR-NV-JSo" id="uZv-vb-ixx"/>
