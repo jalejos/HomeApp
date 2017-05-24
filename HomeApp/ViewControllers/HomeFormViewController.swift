@@ -34,6 +34,7 @@ class HomeFormViewController: UIViewController {
     
     //MARK: - Private properties
     private let regionRadius: CLLocationDistance = 1000
+    private var mapAnnotation: MKPointAnnotation?
     
     private enum TypeHouses: Int {
         case rent
@@ -45,6 +46,7 @@ class HomeFormViewController: UIViewController {
         
         localizeUI()
         focusMapView()
+        addGestureRecognizer()
     }
     
     private func localizeUI() {
@@ -67,16 +69,59 @@ class HomeFormViewController: UIViewController {
     }
     
     private func focusMapView() {
-        let locationService = LocationService()
         LocationService.sharedInstance.getLocation { location in
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, self.regionRadius * 2.0, self.regionRadius * 2.0)
             self.mapView.setRegion(coordinateRegion, animated: true)
         }
     }
     
+    private func addGestureRecognizer() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
+        mapView.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc private func handleMapTap(sender: UITapGestureRecognizer? = nil) {
+        let mapPoint = sender?.location(in: mapView)
+        let map2DCoordinate = mapView.convert(mapPoint!, toCoordinateFrom: mapView)
+        
+        if let mapAnnotation = mapAnnotation {
+            mapView.removeAnnotation(mapAnnotation)
+        }
+        let annotation = MKPointAnnotation.init()
+        annotation.coordinate = map2DCoordinate
+        mapView.addAnnotation(annotation)
+        mapAnnotation = annotation
+        reverseGeolocate(coordinate: annotation.coordinate)
+    }
+    
+    private func reverseGeolocate(coordinate: CLLocationCoordinate2D) {
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+            
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            
+            if let locationName = placeMark.addressDictionary!["Name"] as? String {
+                self.addressField.text = locationName
+            }
+            
+            if let city = placeMark.addressDictionary!["City"] as? String {
+                self.cityField.text = city
+            }
+            
+            if let state = placeMark.addressDictionary!["State"] as? String {
+                self.stateField.text = state
+            }
+        })
+        
+    }
+
+    
     @IBAction func submitTap(_ sender: Any) {
         guard let typeHouse = Int(priceField.text!), let address = addressField.text, let state = stateField.text, let city = cityField.text,
-            let beds = Int(bedsField.text!), let baths = Int(bathsField.text!), let description = descriptionTextView.text, let price = Int(priceField.text!)
+            let beds = Int(bedsField.text!), let baths = Int(bathsField.text!), let description = descriptionTextView.text, let price = Int(priceField.text!),
+            let annotation = mapAnnotation
             else {
                 AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: "ADD-HOUSE-INCOMPLETE-SUBMIT".localized(),
                                            button: "CLOSE".localized(), controller: self)
