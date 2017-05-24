@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 
-class HomeFormViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class HomeFormViewController: UIViewController {
 
+    //MARK: - UI elements
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var confirmButton: UIBarButtonItem!
     @IBOutlet weak var selectLabel: UILabel!
@@ -31,74 +32,30 @@ class HomeFormViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var priceField: UITextField!
     
-    
-    var currentTextField: UITextField?
-    let dataObject = [1, 2, 3, 4, 5, 6]
-    
     //MARK: - Private properties
-    private let regionRadius: CLLocationDistance = 1000
     private var mapAnnotation: MKPointAnnotation?
-    
+    private let regionRadius: CLLocationDistance = 1000
     private enum TypeHouses: Int {
         case rent
         case sale
     }
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.dataObject.count
-    }
+    //MARK: - Fileprivate properties
+    fileprivate var currentTextField: UITextField?
+    fileprivate let inputViewOptions = [1, 2, 3, 4, 5, 6]
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(self.dataObject[row]);
-    }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        currentTextField?.text = String(dataObject[row])
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        currentTextField = textField
-        return true
-    }
-    
+    //MARK: - Initialization function
     override func viewDidLoad() {
         super.viewDidLoad()
         
         localizeUI()
         focusMapView()
-        addGestureRecognizer()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
-        view.addGestureRecognizer(tap)
-        
-        addPickerView(to: bedsField)
-        addPickerView(to: bathsField)
-        
+        addGestureRecognizers()
+        configureInputViewsBehavior()
     }
     
-    func addPickerView(to textField: UITextField) {
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        textField.inputView = pickerView
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    
+    //MARK: - Private functions
     private func localizeUI() {
         navigationItem.title = "ADD-HOME".localized()
         confirmButton.title = "SUBMIT".localized()
@@ -125,30 +82,33 @@ class HomeFormViewController: UIViewController, UITextFieldDelegate, UITextViewD
         }
     }
     
-    private func addGestureRecognizer() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
-        mapView.addGestureRecognizer(tapRecognizer)
+    private func addGestureRecognizers() {
+        let mapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
+        mapView.addGestureRecognizer(mapRecognizer)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapRecognizer)
     }
     
-    @objc private func handleMapTap(sender: UITapGestureRecognizer? = nil) {
-        let mapPoint = sender?.location(in: mapView)
-        let map2DCoordinate = mapView.convert(mapPoint!, toCoordinateFrom: mapView)
+    private func configureInputViewsBehavior() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        if let mapAnnotation = mapAnnotation {
-            mapView.removeAnnotation(mapAnnotation)
-        }
-        let annotation = MKPointAnnotation.init()
-        annotation.coordinate = map2DCoordinate
-        mapView.addAnnotation(annotation)
-        mapAnnotation = annotation
-        reverseGeolocate(coordinate: annotation.coordinate)
+        addPickerView(to: bedsField)
+        addPickerView(to: bathsField)
+    }
+    
+    private func addPickerView(to textField: UITextField) {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        textField.inputView = pickerView
     }
     
     private func reverseGeolocate(coordinate: CLLocationCoordinate2D) {
         let geoCoder = CLGeocoder()
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
-            
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]
             
@@ -164,10 +124,44 @@ class HomeFormViewController: UIViewController, UITextFieldDelegate, UITextViewD
                 self.stateField.text = state
             }
         })
+    }
+    
+    //MARK: - Selectors
+    @objc private func handleMapTap(sender: UITapGestureRecognizer? = nil) {
+        let mapPoint = sender?.location(in: mapView)
+        let map2DCoordinate = mapView.convert(mapPoint!, toCoordinateFrom: mapView)
         
+        if let mapAnnotation = mapAnnotation {
+            mapView.removeAnnotation(mapAnnotation)
+        }
+        let annotation = MKPointAnnotation.init()
+        annotation.coordinate = map2DCoordinate
+        mapView.addAnnotation(annotation)
+        mapAnnotation = annotation
+        reverseGeolocate(coordinate: annotation.coordinate)
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+    
+    @objc fileprivate func dismissKeyboard() {
+        view.endEditing(true)
     }
 
-    
+    //MARK: - UI elements functions
     @IBAction func submitTap(_ sender: Any) {
         guard let typeHouse = Int(priceField.text!), let address = addressField.text, let state = stateField.text, let city = cityField.text,
             let beds = Int(bedsField.text!), let baths = Int(bathsField.text!), let description = descriptionTextView.text, let price = Int(priceField.text!),
@@ -185,20 +179,39 @@ class HomeFormViewController: UIViewController, UITextFieldDelegate, UITextViewD
             }
         }
     }
-    
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
+}
+
+//MARK: - UITextFieldDelegate functions
+extension HomeFormViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        currentTextField = textField
+        return true
     }
     
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+//MARK: - UIPickerViewDataSource functions
+extension HomeFormViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.inputViewOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(self.inputViewOptions[row]);
+    }
+}
+
+//MARK: - UIPickerViewDelegate functions
+extension HomeFormViewController: UIPickerViewDelegate{
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        currentTextField?.text = String(inputViewOptions[row])
     }
 }
