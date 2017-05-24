@@ -34,7 +34,7 @@
 
 //MARK: - Home strings
 "ADD-HOME" = "Add home";
-"SELECT-LOCATION-LABEL" = "Select your property's location (Optional)";
+"SELECT-LOCATION-LABEL" = "Select your property's location";
 "TYPE-HOUSE-FORM-LABEL" = "This house is for:";
 "ADDRESS" = "Address";
 "STATE" = "State";
@@ -44,4 +44,5 @@
 "DESCRIPTION" = "Description";
 "PRICE" = "Price";
 "ADD-HOUSE-ERROR-TITLE" = "House submition error.";
+"ADD-HOUSE-SELECT-ANNOTATION" = "Please select on the map where the property is located at.";
 "ADD-HOUSE-INCOMPLETE-SUBMIT" = "Please make sure to fill all of the fields.";

@@ -163,21 +163,27 @@ class HomeFormViewController: UIViewController {
 
     //MARK: - UI elements functions
     @IBAction func submitTap(_ sender: Any) {
-        guard let typeHouse = Int(priceField.text!), let address = addressField.text, let state = stateField.text, let city = cityField.text,
-            let beds = Int(bedsField.text!), let baths = Int(bathsField.text!), let description = descriptionTextView.text, let price = Int(priceField.text!),
-            let annotation = mapAnnotation
+        guard let annotation = mapAnnotation
             else {
-                AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: "ADD-HOUSE-INCOMPLETE-SUBMIT".localized(),
+                AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: "ADD-HOUSE-SELECT-ANNOTATION".localized(),
                                            button: "CLOSE".localized(), controller: self)
                 return
         }
-
-        HouseService.addHouse(typeHouse: typeHouse, address: address, state: state, city: city, beds: beds, baths: baths,
-                              description: description, price: price, annotation: annotation) { error in
-            if let error = error {
-                AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+        
+        if let typeHouse = Int(priceField.text!), let address = addressField.text, let state = stateField.text, let city = cityField.text,
+            let beds = Int(bedsField.text!), let baths = Int(bathsField.text!), let description = descriptionTextView.text, let price = Int(priceField.text!){
+            if !address.isEmpty && !state.isEmpty && !city.isEmpty && !description.isEmpty {
+                HouseService.addHouse(typeHouse: typeHouse, address: address, state: state, city: city, beds: beds, baths: baths,
+                                      description: description, price: price, annotation: annotation) { error in
+                                        if let error = error {
+                                            AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+                                        }
+                }
+                return
             }
         }
+        AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: "ADD-HOUSE-INCOMPLETE-SUBMIT".localized(),
+                                           button: "CLOSE".localized(), controller: self)
     }
 }
 
