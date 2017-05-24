@@ -38,7 +38,10 @@
 "TYPE-HOUSE-FORM-LABEL" = "This house is for:";
 "ADDRESS" = "Address";
 "STATE" = "State";
+"CITY" = "City";
 "BEDS-LABEL" = "# of beds";
 "BATHS-LABEL" = "# of baths";
 "DESCRIPTION" = "Description";
 "PRICE" = "Price";
+"ADD-HOUSE-ERROR-TITLE" = "House submition error.";
+"ADD-HOUSE-INCOMPLETE-SUBMIT" = "Please make sure to fill all of the fields.";
