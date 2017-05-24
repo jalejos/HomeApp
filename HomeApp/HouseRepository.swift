@@ -14,6 +14,6 @@ struct HouseRepository {
     static let houseRef = FIRDatabase.database().reference(withPath: "houses")
     
     static func addHouse(dict: [String: Any], errorHandler: @escaping (Error?) -> ()) {
-        houseRef.setValue(dict)
+        houseRef.child(dict["address"] as! String).setValue(dict)
     }
 }
