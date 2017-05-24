@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class HomeFormViewController: UIViewController {
+class HomeFormViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var confirmButton: UIBarButtonItem!
@@ -32,6 +32,9 @@ class HomeFormViewController: UIViewController {
     @IBOutlet weak var priceField: UITextField!
     
     
+    var currentTextField: UITextField?
+    let dataObject = [1, 2, 3, 4, 5, 6]
+    
     //MARK: - Private properties
     private let regionRadius: CLLocationDistance = 1000
     private var mapAnnotation: MKPointAnnotation?
@@ -40,6 +43,27 @@ class HomeFormViewController: UIViewController {
         case rent
         case sale
     }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.dataObject.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(self.dataObject[row]);
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        currentTextField?.text = String(dataObject[row])
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        currentTextField = textField
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +71,33 @@ class HomeFormViewController: UIViewController {
         localizeUI()
         focusMapView()
         addGestureRecognizer()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+        
+        addPickerView(to: bedsField)
+        addPickerView(to: bathsField)
+        
     }
+    
+    func addPickerView(to textField: UITextField) {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        textField.inputView = pickerView
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
     private func localizeUI() {
         navigationItem.title = "ADD-HOME".localized()
@@ -132,6 +182,22 @@ class HomeFormViewController: UIViewController {
                               description: description, price: price, annotation: annotation) { error in
             if let error = error {
                 AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+            }
+        }
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
             }
         }
     }
