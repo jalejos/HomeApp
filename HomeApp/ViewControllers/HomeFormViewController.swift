@@ -129,7 +129,7 @@ class HomeFormViewController: UIViewController {
         }
 
         HouseService.addHouse(typeHouse: typeHouse, address: address, state: state, city: city, beds: beds, baths: baths,
-                              description: description, price: price) { error in
+                              description: description, price: price, annotation: annotation) { error in
             if let error = error {
                 AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
             }
