@@ -11,6 +11,7 @@ target 'HomeApp' do
   pod 'Firebase/Database', '~> 3.1'
   
   pod 'ObjectMapper', '~> 2.2'
+  pod 'IQKeyboardManagerSwift', '~> 4.0'
 
   pod 'Bolts', '~> 1.8'
   pod 'FBSDKCoreKit', '~> 4.20'
