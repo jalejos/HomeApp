@@ -51,8 +51,11 @@ class HomeFormViewController: UIViewController {
         
         localizeUI()
         focusMapView()
-        addGestureRecognizers()
-        configureInputViewsBehavior()
+        addGestureRecognizer()
+        let mapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
+        mapView.addGestureRecognizer(mapRecognizer)
+        addPickerView(to: bedsField)
+        addPickerView(to: bathsField)
     }
     
     //MARK: - Private functions
@@ -80,22 +83,6 @@ class HomeFormViewController: UIViewController {
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, self.regionRadius * 2.0, self.regionRadius * 2.0)
             self.mapView.setRegion(coordinateRegion, animated: true)
         }
-    }
-    
-    private func addGestureRecognizers() {
-        let mapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
-        mapView.addGestureRecognizer(mapRecognizer)
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapRecognizer)
-    }
-    
-    private func configureInputViewsBehavior() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        addPickerView(to: bedsField)
-        addPickerView(to: bathsField)
     }
     
     private func addPickerView(to textField: UITextField) {
@@ -126,7 +113,7 @@ class HomeFormViewController: UIViewController {
         })
     }
     
-    //MARK: - Selectors
+    //MARK: - Selector functions
     @objc private func handleMapTap(sender: UITapGestureRecognizer? = nil) {
         let mapPoint = sender?.location(in: mapView)
         let map2DCoordinate = mapView.convert(mapPoint!, toCoordinateFrom: mapView)
@@ -139,26 +126,6 @@ class HomeFormViewController: UIViewController {
         mapView.addAnnotation(annotation)
         mapAnnotation = annotation
         reverseGeolocate(coordinate: annotation.coordinate)
-    }
-    
-    @objc private func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    
-    @objc private func keyboardWillHide(notification: NSNotification) {
-        if let _ = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y = 0
-            }
-        }
-    }
-    
-    @objc fileprivate func dismissKeyboard() {
-        view.endEditing(true)
     }
 
     //MARK: - UI elements functions
