@@ -51,7 +51,6 @@ class HomeFormViewController: UIViewController {
         
         localizeUI()
         focusMapView()
-        addGestureRecognizer()
         let mapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
         mapView.addGestureRecognizer(mapRecognizer)
         addPickerView(to: bedsField)
