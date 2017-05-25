@@ -198,6 +198,18 @@ extension HomeFormViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == bedsField || textField == bathsField {
+            return false
+        }
+        
+        if textField == priceField && string.rangeOfCharacter(from: CharacterSet.decimalDigits) == nil && string.characters.count > 0 {
+            return false
+        }
+        
+        return true
+    }
 }
 
 //MARK: - UIPickerViewDataSource functions
