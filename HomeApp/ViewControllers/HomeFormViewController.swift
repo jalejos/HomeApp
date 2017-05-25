@@ -117,6 +117,26 @@ class HomeFormViewController: UIViewController {
         })
     }
     
+    private func requestPhoto() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = false
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    private func requestCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera;
+            imagePicker.allowsEditing = false
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
     //MARK: - Selector functions
     @objc private func handleMapTap(sender: UITapGestureRecognizer? = nil) {
         let mapPoint = sender?.location(in: mapView)
@@ -155,6 +175,15 @@ class HomeFormViewController: UIViewController {
         }
         AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: "ADD-HOUSE-INCOMPLETE-SUBMIT".localized(),
                                            button: "CLOSE".localized(), controller: self)
+    }
+    
+    @IBAction func selectImage(_ sender: Any) {
+        AlertViewUtility.showAlertDialog(title: "SELECT-IMAGE-SOURCE-TITLE".localized(), message: "SELECT-IMAGE-SOURCE-MESSAGE".localized(),
+           firstOption: "PHOTO-LIBRARY".localized(), firstHandler: { _ in
+            self.requestPhoto()
+        }, secondOption: "CAMERA".localized(), secondHandler: { _ in
+            self.requestCamera()
+        }, controller: self)
     }
 }
 
@@ -202,5 +231,18 @@ extension HomeFormViewController: UIPickerViewDataSource {
 extension HomeFormViewController: UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentTextField?.text = String(inputViewOptions[row])
+    }
+}
+
+//MARK: - UIImagePickerControllerDelegate functions
+extension HomeFormViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imageView.image = chosenImage
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

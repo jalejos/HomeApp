@@ -13,6 +13,8 @@
 "SETTINGS" = "Settings";
 "BACK" = "Back";
 "SUBMIT" = "Submit";
+"PHOTO-LIBRARY" = "Photo gallery";
+"CAMERA" = "Camera";
 
 //MARK: - Login strings
 "SIGN-IN" = "Sign in";
@@ -48,3 +50,5 @@
 "ADD-HOUSE-ERROR-TITLE" = "House submition error.";
 "ADD-HOUSE-SELECT-ANNOTATION" = "Please select on the map where the property is located at.";
 "ADD-HOUSE-INCOMPLETE-SUBMIT" = "Please make sure to fill all of the fields.";
+"SELECT-IMAGE-SOURCE-TITLE" = "Select image";
+"SELECT-IMAGE-SOURCE-MESSAGE" = "Choose where to get the photo from";
