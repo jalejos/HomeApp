@@ -4,6 +4,10 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Need access to your current location to more properly show available homes</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need access to camera to get your property&apos;s photo</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need access to library to get your property&apos;s photo</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
