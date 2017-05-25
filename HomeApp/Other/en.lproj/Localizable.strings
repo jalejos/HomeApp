@@ -43,6 +43,8 @@
 "BATHS-LABEL" = "# of baths";
 "DESCRIPTION" = "Description";
 "PRICE" = "Price";
+"ADD-HOME-IMAGE-LABEL" = "Provide a photo of the property.";
+"ADD-HOME-IMAGE-BUTTON" = "Select image";
 "ADD-HOUSE-ERROR-TITLE" = "House submition error.";
 "ADD-HOUSE-SELECT-ANNOTATION" = "Please select on the map where the property is located at.";
 "ADD-HOUSE-INCOMPLETE-SUBMIT" = "Please make sure to fill all of the fields.";

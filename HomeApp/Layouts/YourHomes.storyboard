@@ -217,14 +217,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide a photo of the property." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqp-3s-OqN">
-                                        <rect key="frame" x="24" y="726" width="327" height="48"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide a photo of the property." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqp-3s-OqN">
+                                        <rect key="frame" x="24" y="726" width="327" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="import-icon" translatesAutoresizingMaskIntoConstraints="NO" id="oFA-gt-Ktc">
-                                        <rect key="frame" x="97.5" y="781.5" width="180" height="180"/>
+                                        <rect key="frame" x="97.5" y="757.5" width="180" height="180"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="750" constant="180" id="4Fd-Vx-JhG"/>
@@ -233,7 +233,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXZ-gO-U5M">
-                                        <rect key="frame" x="134.5" y="969" width="105" height="34"/>
+                                        <rect key="frame" x="134.5" y="945" width="105" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Select image"/>
                                     </button>
@@ -329,6 +329,9 @@
                         <outlet property="confirmButton" destination="eZ4-R5-sXM" id="ddZ-un-nGb"/>
                         <outlet property="descriptionLabel" destination="Gjh-BW-Sv3" id="S21-kD-5IC"/>
                         <outlet property="descriptionTextView" destination="voV-NN-G4L" id="eaT-gR-pIY"/>
+                        <outlet property="imageButton" destination="VXZ-gO-U5M" id="Jk1-Au-WcC"/>
+                        <outlet property="imageLabel" destination="Lqp-3s-OqN" id="gBq-Cu-RzI"/>
+                        <outlet property="imageView" destination="oFA-gt-Ktc" id="7Kc-Lg-vlh"/>
                         <outlet property="mapView" destination="JZt-11-GWE" id="MWr-NO-jWj"/>
                         <outlet property="priceField" destination="oD7-jX-z7W" id="IiD-Rt-keL"/>
                         <outlet property="priceLabel" destination="biH-c9-IKA" id="VST-8W-V8b"/>

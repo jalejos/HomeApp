@@ -31,6 +31,9 @@ class HomeFormViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var priceField: UITextField!
+    @IBOutlet weak var imageLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageButton: UIButton!
     
     //MARK: - Private properties
     private var mapAnnotation: MKPointAnnotation?
@@ -75,6 +78,8 @@ class HomeFormViewController: UIViewController {
         bathsLabel.text = "BATHS-LABEL".localized()
         descriptionLabel.text = "DESCRIPTION".localized()
         priceLabel.text = "PRICE".localized()
+        imageLabel.text = "ADD-HOME-IMAGE-LABEL".localized()
+        imageButton.setTitle("ADD-HOME-IMAGE-BUTTON".localized(), for: .normal)
     }
     
     private func focusMapView() {
