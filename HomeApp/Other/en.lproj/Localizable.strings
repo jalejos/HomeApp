@@ -49,6 +49,7 @@
 "ADD-HOME-IMAGE-BUTTON" = "Select image";
 "ADD-HOUSE-ERROR-TITLE" = "House submition error.";
 "ADD-HOUSE-SELECT-ANNOTATION" = "Please select on the map where the property is located at.";
+"ADD-HOUSE-SELECT-IMAGE" = "Please select an image to be used for your property.";
 "ADD-HOUSE-INCOMPLETE-SUBMIT" = "Please make sure to fill all of the fields.";
 "SELECT-IMAGE-SOURCE-TITLE" = "Select image";
 "SELECT-IMAGE-SOURCE-MESSAGE" = "Choose where to get the photo from";

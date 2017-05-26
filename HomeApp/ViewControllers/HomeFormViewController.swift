@@ -45,6 +45,7 @@ class HomeFormViewController: UIViewController {
     
     //MARK: - Fileprivate properties
     fileprivate var currentTextField: UITextField?
+    fileprivate var selectedImage: UIImage?
     fileprivate let inputViewOptions = [1, 2, 3, 4, 5, 6]
     
     
@@ -161,11 +162,18 @@ class HomeFormViewController: UIViewController {
                 return
         }
         
+        guard let image = selectedImage
+            else {
+                AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: "ADD-HOUSE-SELECT-IMAGE".localized(),
+                                           button: "CLOSE".localized(), controller: self)
+                return
+        }
+        
         if let typeHouse = Int(priceField.text!), let address = addressField.text, let state = stateField.text, let city = cityField.text,
-            let beds = Int(bedsField.text!), let baths = Int(bathsField.text!), let description = descriptionTextView.text, let price = Int(priceField.text!){
+            let beds = Int(bedsField.text!), let baths = Int(bathsField.text!), let description = descriptionTextView.text, let price = Int(priceField.text!) {
             if !address.isEmpty && !state.isEmpty && !city.isEmpty && !description.isEmpty {
                 HouseService.addHouse(typeHouse: typeHouse, address: address, state: state, city: city, beds: beds, baths: baths,
-                                      description: description, price: price, annotation: annotation) { error in
+                                      description: description, price: price, annotation: annotation, image: image) { error in
                                         if let error = error {
                                             AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
                                         }
@@ -239,6 +247,7 @@ extension HomeFormViewController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.image = chosenImage
+        selectedImage = chosenImage
         dismiss(animated: true, completion: nil)
     }
     
