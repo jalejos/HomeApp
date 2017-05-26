@@ -176,6 +176,8 @@ class HomeFormViewController: UIViewController {
                                       description: description, price: price, annotation: annotation, image: image) { error in
                                         if let error = error {
                                             AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+                                        } else {
+                                            _ = self.navigationController?.popViewController(animated: true)
                                         }
                 }
                 return
