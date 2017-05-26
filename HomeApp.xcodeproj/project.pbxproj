@@ -135,6 +135,7 @@
 				314884421ECE484E009E7994 /* House.swift */,
 			);
 			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		314C0F551ED357AC00E25E30 /* Repositories */ = {
@@ -143,6 +144,7 @@
 				314C0F531ED357A700E25E30 /* HouseRepository.swift */,
 			);
 			name = Repositories;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		315A38D61EC0DC6F00C0145B = {
@@ -170,11 +172,11 @@
 		315A38E11EC0DC6F00C0145B /* HomeApp */ = {
 			isa = PBXGroup;
 			children = (
-				314C0F551ED357AC00E25E30 /* Repositories */,
 				314884411ECE4838009E7994 /* Models */,
+				315A39351EC132B000C0145B /* Other */,
+				314C0F551ED357AC00E25E30 /* Repositories */,
 				315A39361EC26BA600C0145B /* Services */,
 				315A39341EC1328E00C0145B /* Storyboards */,
-				315A39351EC132B000C0145B /* Other */,
 				315A39141EC0EA3C00C0145B /* Utilities */,
 				315A39111EC0E4E300C0145B /* ViewControllers */,
 				315A38E21EC0DC6F00C0145B /* AppDelegate.swift */,
@@ -205,12 +207,12 @@
 		315A39111EC0E4E300C0145B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3148843F1ECCC001009E7994 /* HomeFormViewController.swift */,
 				315A39121EC0E52B00C0145B /* LoginViewController.swift */,
 				315A392E1EC1283C00C0145B /* MapViewController.swift */,
-				315A39391EC3BB3700C0145B /* SideMenuTableViewController.swift */,
 				315A393D1EC3CF3F00C0145B /* SettingsViewController.swift */,
+				315A39391EC3BB3700C0145B /* SideMenuTableViewController.swift */,
 				3148843D1ECCBF61009E7994 /* YourHomesViewController.swift */,
-				3148843F1ECCC001009E7994 /* HomeFormViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -237,13 +239,13 @@
 			isa = PBXGroup;
 			children = (
 				315A38EB1EC0DC6F00C0145B /* LaunchScreen.storyboard */,
-				315A38E61EC0DC6F00C0145B /* Main.storyboard */,
 				314884331ECA5404009E7994 /* Login.storyboard */,
+				315A38E61EC0DC6F00C0145B /* Main.storyboard */,
 				314884371ECB6B63009E7994 /* Settings.storyboard */,
 				314884391ECCBA30009E7994 /* YourHomes.storyboard */,
 			);
 			name = Storyboards;
-			path = Layouts;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		315A39351EC132B000C0145B /* Other */ = {
@@ -259,11 +261,12 @@
 		315A39361EC26BA600C0145B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				315A39371EC26BC900C0145B /* LoginService.swift */,
-				315A393F1EC3E08E00C0145B /* LocationService.swift */,
 				31BF8A031ECF6468008057CF /* HouseService.swift */,
+				315A393F1EC3E08E00C0145B /* LocationService.swift */,
+				315A39371EC26BC900C0145B /* LoginService.swift */,
 			);
 			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		3E603C05BD4A065BB9DC0244 /* Frameworks */ = {
