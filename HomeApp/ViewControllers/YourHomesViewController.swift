@@ -14,6 +14,7 @@ class YourHomesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var houseArray: [House] = []
+    fileprivate var selectedHouse: House?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,5 +47,8 @@ extension YourHomesViewController: UITableViewDataSource {
 }
 
 extension YourHomesViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedHouse = houseArray[indexPath.row]
+        performSegue(withIdentifier: SegueIdentifier.houseForm.rawValue, sender: self)
+    }
 }
