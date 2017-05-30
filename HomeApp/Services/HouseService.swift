@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 import MapKit
 
 struct HouseService {
@@ -18,6 +19,22 @@ struct HouseService {
                                        "location": ["latitude": annotation.coordinate.latitude, "longitude": annotation.coordinate.longitude]]
         HouseRepository.addHouse(dict: houseDict, image: image) { error in
             errorHandler(error)
+        }
+    }
+    
+    static func getMyHouses(completionHandler: @escaping ([House]?, Error?) -> ()) {
+        HouseRepository.getMyHouses { responseDict, error in
+           
+            if let responseDict = responseDict {
+                let responseArray = Array(responseDict.values)
+                if let houses = Mapper<House>().mapArray(JSONArray: responseArray) {
+                    completionHandler(houses, nil)
+                } else {
+                    //TODO
+                }
+            } else {
+                //TODO
+            }
         }
     }
 }
