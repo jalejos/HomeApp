@@ -33,6 +33,6 @@ class House: Mappable {
         bathAmount      <- map["bathAmount"]
         description     <- map["description"]
         price           <- map["price"]
-        geolocation     <- map["logcation"]
+        geolocation     <- map["location"]
     }
 }
