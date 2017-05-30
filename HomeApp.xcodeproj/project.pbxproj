@@ -14,6 +14,7 @@
 		314884401ECCC001009E7994 /* HomeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148843F1ECCC001009E7994 /* HomeFormViewController.swift */; };
 		314884431ECE484E009E7994 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314884421ECE484E009E7994 /* House.swift */; };
 		314C0F541ED357A700E25E30 /* HouseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C0F531ED357A700E25E30 /* HouseRepository.swift */; };
+		314C0F571EDDCF6E00E25E30 /* Geolocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C0F561EDDCF6E00E25E30 /* Geolocation.swift */; };
 		315A38E31EC0DC6F00C0145B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A38E21EC0DC6F00C0145B /* AppDelegate.swift */; };
 		315A38E81EC0DC6F00C0145B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315A38E61EC0DC6F00C0145B /* Main.storyboard */; };
 		315A38EA1EC0DC6F00C0145B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315A38E91EC0DC6F00C0145B /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		3148843F1ECCC001009E7994 /* HomeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFormViewController.swift; sourceTree = "<group>"; };
 		314884421ECE484E009E7994 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		314C0F531ED357A700E25E30 /* HouseRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseRepository.swift; sourceTree = "<group>"; };
+		314C0F561EDDCF6E00E25E30 /* Geolocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geolocation.swift; sourceTree = "<group>"; };
 		315A38DF1EC0DC6F00C0145B /* HomeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		315A38E21EC0DC6F00C0145B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		315A38E71EC0DC6F00C0145B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,8 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				314884421ECE484E009E7994 /* House.swift */,
+				314C0F561EDDCF6E00E25E30 /* Geolocation.swift */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -143,7 +145,6 @@
 			children = (
 				314C0F531ED357A700E25E30 /* HouseRepository.swift */,
 			);
-			name = Repositories;
 			path = Repositories;
 			sourceTree = "<group>";
 		};
@@ -244,7 +245,6 @@
 				314884371ECB6B63009E7994 /* Settings.storyboard */,
 				314884391ECCBA30009E7994 /* YourHomes.storyboard */,
 			);
-			name = Storyboards;
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
@@ -265,7 +265,6 @@
 				315A393F1EC3E08E00C0145B /* LocationService.swift */,
 				315A39371EC26BC900C0145B /* LoginService.swift */,
 			);
-			name = Services;
 			path = Services;
 			sourceTree = "<group>";
 		};
@@ -585,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314C0F571EDDCF6E00E25E30 /* Geolocation.swift in Sources */,
 				315A392D1EC1277B00C0145B /* SegueIdentifiers.swift in Sources */,
 				315A39131EC0E52B00C0145B /* LoginViewController.swift in Sources */,
 				31BF8A041ECF6468008057CF /* HouseService.swift in Sources */,

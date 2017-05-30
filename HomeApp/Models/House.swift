@@ -18,6 +18,7 @@ class House: Mappable {
     var bathAmount: Int?
     var description: String?
     var price: Int?
+    var geolocation: Geolocation?
     
     required init?(map: Map){
         
@@ -32,5 +33,6 @@ class House: Mappable {
         bathAmount      <- map["bathAmount"]
         description     <- map["description"]
         price           <- map["price"]
+        geolocation     <- map["logcation"]
     }
 }
