@@ -16,7 +16,6 @@ struct HouseRepository {
     static let houseRef = FIRDatabase.database().reference(withPath: "houses")
     static let imageRef = FIRStorage.storage().reference(withPath: "houses")
     
-    static let noAccessTokenError = NSError.init(domain: "HomeApp", code: 409, userInfo: [NSLocalizedDescriptionKey :  NSLocalizedString("Access Error", value: "NO-ACCESS-TOKEN-ERROR".localized(), comment: "")])
     
     static func addHouse(dict: [String: Any], image: UIImage, completionHandler: @escaping (Error?) -> ()) {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
