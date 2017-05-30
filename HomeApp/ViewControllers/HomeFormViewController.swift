@@ -169,9 +169,10 @@ class HomeFormViewController: UIViewController {
                 return
         }
         
-        if let typeHouse = Int(priceField.text!), let address = addressField.text, let state = stateField.text, let city = cityField.text,
+        if let address = addressField.text, let state = stateField.text, let city = cityField.text,
             let beds = Int(bedsField.text!), let baths = Int(bathsField.text!), let description = descriptionTextView.text, let price = Int(priceField.text!) {
             if !address.isEmpty && !state.isEmpty && !city.isEmpty && !description.isEmpty {
+                let typeHouse = typeHouseSegmentedControl.selectedSegmentIndex
                 HouseService.addHouse(typeHouse: typeHouse, address: address, state: state, city: city, beds: beds, baths: baths,
                                       description: description, price: price, annotation: annotation, image: image) { error in
                                         if let error = error {
