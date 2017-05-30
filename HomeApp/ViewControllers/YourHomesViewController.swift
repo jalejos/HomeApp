@@ -13,15 +13,16 @@ class YourHomesViewController: UIViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var houseArray: [Any] = []
+    fileprivate var houseArray: [House] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         localizeUI()
         HouseService.getMyHouses { houses, error in
-            if let _ = houses {
-                
+            if let houses = houses {
+                self.houseArray = houses
+                self.tableView.reloadData()
             }
         }
     }
@@ -38,7 +39,9 @@ extension YourHomesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = UITableViewCell()
+        cell.textLabel?.text = houseArray[indexPath.row].address
+        return cell
     }
 }
 
