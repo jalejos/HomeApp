@@ -19,6 +19,11 @@ class YourHomesViewController: UIViewController {
         super.viewDidLoad()
         
         localizeUI()
+        HouseService.getMyHouses { houses, error in
+            if let _ = houses {
+                
+            }
+        }
     }
     
     private func localizeUI() {
