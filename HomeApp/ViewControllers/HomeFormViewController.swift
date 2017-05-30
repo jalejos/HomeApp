@@ -36,6 +36,7 @@ class HomeFormViewController: UIViewController {
     @IBOutlet weak var imageButton: UIButton!
     
     //MARK: - Private properties
+    private var selectedHouse: House?
     private var mapAnnotation: MKPointAnnotation?
     private let regionRadius: CLLocationDistance = 1000
     private enum TypeHouses: Int {
@@ -59,6 +60,14 @@ class HomeFormViewController: UIViewController {
         mapView.addGestureRecognizer(mapRecognizer)
         addPickerView(to: bedsField)
         addPickerView(to: bathsField)
+        if let house = selectedHouse {
+            fillForm(with: house)
+        }
+    }
+    
+    //MARK: - Public functions
+    func configure(with house: House) {
+        selectedHouse = house
     }
     
     //MARK: - Private functions
@@ -84,9 +93,16 @@ class HomeFormViewController: UIViewController {
     }
     
     private func focusMapView() {
-        LocationService.sharedInstance.getLocation { location in
+        if let geolocation = selectedHouse?.geolocation {
+            let location = CLLocation.init(latitude: geolocation.latitude!, longitude: geolocation.longitude!)
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, self.regionRadius * 2.0, self.regionRadius * 2.0)
             self.mapView.setRegion(coordinateRegion, animated: true)
+            changeAnnotation(location: location.coordinate)
+        } else {
+                LocationService.sharedInstance.getLocation { location in
+                let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, self.regionRadius * 2.0, self.regionRadius * 2.0)
+                self.mapView.setRegion(coordinateRegion, animated: true)
+            }
         }
     }
     
@@ -138,19 +154,38 @@ class HomeFormViewController: UIViewController {
         }
     }
     
+    private func changeAnnotation(location: CLLocationCoordinate2D) {
+        if let mapAnnotation = mapAnnotation {
+            mapView.removeAnnotation(mapAnnotation)
+        }
+        let annotation = MKPointAnnotation.init()
+        annotation.coordinate = location
+        mapView.addAnnotation(annotation)
+        mapAnnotation = annotation
+        reverseGeolocate(coordinate: annotation.coordinate)
+    }
+    
+    private func fillForm(with house: House) {
+        guard let typeHouse = house.houseType, let address = house.address, let state = house.state, let city = house.city,
+            let beds = house.bedAmount, let baths = house.bathAmount, let description = house.description,
+            let price = house.price
+            else {return}
+        typeHouseSegmentedControl.selectedSegmentIndex = typeHouse
+        addressField.text = address
+        stateField.text = state
+        cityField.text = city
+        bedsField.text = String(beds)
+        bathsField.text = String(baths)
+        descriptionTextView.text = description
+        priceField.text = String(price)
+    }
+    
     //MARK: - Selector functions
     @objc private func handleMapTap(sender: UITapGestureRecognizer? = nil) {
         let mapPoint = sender?.location(in: mapView)
         let map2DCoordinate = mapView.convert(mapPoint!, toCoordinateFrom: mapView)
         
-        if let mapAnnotation = mapAnnotation {
-            mapView.removeAnnotation(mapAnnotation)
-        }
-        let annotation = MKPointAnnotation.init()
-        annotation.coordinate = map2DCoordinate
-        mapView.addAnnotation(annotation)
-        mapAnnotation = annotation
-        reverseGeolocate(coordinate: annotation.coordinate)
+        changeAnnotation(location: map2DCoordinate)
     }
 
     //MARK: - UI elements functions

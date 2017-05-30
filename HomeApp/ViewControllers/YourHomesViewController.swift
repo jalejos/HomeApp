@@ -32,6 +32,12 @@ class YourHomesViewController: UIViewController {
         navigationItem.title = "YOUR-HOME".localized()
         addButton.title = "ADD-HOME".localized()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let formViewController = segue.destination as? HomeFormViewController, let selectedHouse = selectedHouse {
+            formViewController.configure(with: selectedHouse)
+        }
+    }
 }
 
 extension YourHomesViewController: UITableViewDataSource {
