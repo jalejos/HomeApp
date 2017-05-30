@@ -23,11 +23,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="kOi-e5-kwU">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="tWE-Im-Ibk">
-                            <connections>
-                                <action selector="backButtonTap:" destination="DjU-Y3-ATx" id="OF1-ZL-f0t"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Sign out" id="YLB-X8-qhf">
                             <connections>
                                 <action selector="signOutTap:" destination="DjU-Y3-ATx" id="hAh-Nr-CkZ"/>
@@ -35,7 +30,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backButton" destination="tWE-Im-Ibk" id="k6L-TY-Ah5"/>
                         <outlet property="signOutButton" destination="YLB-X8-qhf" id="Sh0-gM-3i5"/>
                         <segue destination="p63-AV-v0J" kind="presentation" identifier="signOut" id="LKR-hn-STE"/>
                     </connections>

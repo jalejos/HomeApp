@@ -3,13 +3,18 @@
 "EMAIL" = "E-mail";
 "PASSWORD" = "Password";
 "CLOSE" = "Close";
+"SALE" = "Sale";
 "FOR-SALE" = "For sale";
+"RENT" = "Rent";
 "FOR-RENT" = "For rent";
 "SAVED-HOMES" = "Favourites";
 "RECENTLY-VIEWED-HOMES" = "Recent homes";
 "YOUR-HOME" = "Your homes";
 "SETTINGS" = "Settings";
 "BACK" = "Back";
+"SUBMIT" = "Submit";
+"PHOTO-LIBRARY" = "Photo gallery";
+"CAMERA" = "Camera";
 
 //MARK: - Login strings
 "SIGN-IN" = "Sign in";
@@ -28,3 +33,23 @@
 
 //MARK: - Settings strings
 "SIGN-OUT" = "Sign out";
+
+//MARK: - Home strings
+"ADD-HOME" = "Add home";
+"SELECT-LOCATION-LABEL" = "Select your property's location";
+"TYPE-HOUSE-FORM-LABEL" = "This house is for:";
+"ADDRESS" = "Address";
+"STATE" = "State";
+"CITY" = "City";
+"BEDS-LABEL" = "# of beds";
+"BATHS-LABEL" = "# of baths";
+"DESCRIPTION" = "Description";
+"PRICE" = "Price";
+"ADD-HOME-IMAGE-LABEL" = "Provide a photo of the property.";
+"ADD-HOME-IMAGE-BUTTON" = "Select image";
+"ADD-HOUSE-ERROR-TITLE" = "House submition error.";
+"ADD-HOUSE-SELECT-ANNOTATION" = "Please select on the map where the property is located at.";
+"ADD-HOUSE-SELECT-IMAGE" = "Please select an image to be used for your property.";
+"ADD-HOUSE-INCOMPLETE-SUBMIT" = "Please make sure to fill all of the fields.";
+"SELECT-IMAGE-SOURCE-TITLE" = "Select image";
+"SELECT-IMAGE-SOURCE-MESSAGE" = "Choose where to get the photo from";
