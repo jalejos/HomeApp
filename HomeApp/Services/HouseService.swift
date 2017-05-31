@@ -11,6 +11,23 @@ import ObjectMapper
 import MapKit
 
 struct HouseService {
+    
+    static func getHouses(completionHandler: @escaping ([House]?, Error?) -> ()) {
+        HouseRepository.getHouses { responseDict, error in
+            if let responseDict = responseDict {
+                let responseArray = Array(responseDict.values)
+                var housesDictArray: [[String: Any]] = []
+                for userHouseDict in responseArray {
+                    let userHouseDict = userHouseDict as! [String: [String: Any]]
+                    housesDictArray.append(contentsOf: Array(userHouseDict.values))
+                }
+                if let houses = Mapper<House>().mapArray(JSONArray: housesDictArray) {
+                    completionHandler(houses, nil)
+                }
+            }
+        }
+    }
+    
     static func addHouse(typeHouse: Int, address: String, state: String, city: String, beds: Int, baths: Int, description: String, price: Int, annotation: MKPointAnnotation,
                          image: UIImage, errorHandler: @escaping (Error?) -> ()) {
         

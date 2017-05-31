@@ -17,6 +17,16 @@ struct HouseRepository {
     static let imageRef = FIRStorage.storage().reference(withPath: "houses")
     
     
+    static func getHouses(completionHandler: @escaping ([String: Any]?, Error?) -> ()) {
+        houseRef.observeSingleEvent(of: .value, with: { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                completionHandler(dict, nil)
+            } else {
+                completionHandler(nil, nil)
+            }
+        })
+    }
+    
     static func addHouse(dict: [String: Any], image: UIImage, completionHandler: @escaping (Error?) -> ()) {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         let userHouseRef = houseRef.child(userID)
