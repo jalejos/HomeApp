@@ -26,6 +26,7 @@ class MapViewController: UIViewController {
 
         localizeUI()
         focusCurrentLocation()
+        getCurrentHousesAnnotations()
     }
     
     //MARK: - Private functions
@@ -44,6 +45,24 @@ class MapViewController: UIViewController {
     private func focusLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    private func getCurrentHousesAnnotations() {
+        HouseService.getHouses { houses, error in
+            if let houses = houses {
+                for house in houses {
+                    self.displayAnnotation(house)
+                }
+            }
+        }
+    }
+    
+    private func displayAnnotation(_ house: House) {
+        let annotation = MKPointAnnotation.init()
+        guard let geolocation = house.geolocation else { return }
+        annotation.coordinate = CLLocationCoordinate2D.init(latitude: geolocation.latitude!,
+                                                            longitude: geolocation.longitude!)
+        mapView.addAnnotation(annotation)
     }
     
     //MARK: - Unwind function
