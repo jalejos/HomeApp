@@ -16,6 +16,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var filterButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var detailsDisplayHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var detailsHideHeightConstraint: NSLayoutConstraint!
     
     //MARK: - Private properties
     private let regionRadius: CLLocationDistance = 1000
@@ -65,6 +67,8 @@ class MapViewController: UIViewController {
         mapView.addAnnotation(annotation)
     }
     
+    
+    
     //MARK: - Unwind function
     @IBAction func unwindToMap(segue: UIStoryboardSegue) {
     }
@@ -92,5 +96,10 @@ extension MapViewController: MKMapViewDelegate {
         }
         
         return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        detailsDisplayHeightConstraint.isActive = true
+        detailsHideHeightConstraint.isActive = false
     }
 }
