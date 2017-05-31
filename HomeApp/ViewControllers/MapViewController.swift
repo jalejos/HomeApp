@@ -66,12 +66,6 @@ class MapViewController: UIViewController {
                                                             longitude: geolocation.longitude!)
         mapView.addAnnotation(annotation)
     }
-    
-    
-    
-    //MARK: - Unwind function
-    @IBAction func unwindToMap(segue: UIStoryboardSegue) {
-    }
 }
 
 extension MapViewController: MKMapViewDelegate {
