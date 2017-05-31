@@ -58,7 +58,7 @@ class MapViewController: UIViewController {
     }
     
     private func displayAnnotation(_ house: House) {
-        let annotation = MKPointAnnotation.init()
+        let annotation = HomeAppAnnotation.init(house: house)
         guard let geolocation = house.geolocation else { return }
         annotation.coordinate = CLLocationCoordinate2D.init(latitude: geolocation.latitude!,
                                                             longitude: geolocation.longitude!)
@@ -67,5 +67,30 @@ class MapViewController: UIViewController {
     
     //MARK: - Unwind function
     @IBAction func unwindToMap(segue: UIStoryboardSegue) {
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            
+            let colorPointAnnotation = annotation as! HomeAppAnnotation
+            pinView?.pinTintColor = colorPointAnnotation.pinColor
+            pinView?.isEnabled = true
+            
+        }
+        else {
+            pinView?.annotation = annotation
+        }
+        
+        return pinView
     }
 }

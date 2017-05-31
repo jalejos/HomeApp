@@ -15,6 +15,7 @@
 		314884431ECE484E009E7994 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314884421ECE484E009E7994 /* House.swift */; };
 		314C0F541ED357A700E25E30 /* HouseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C0F531ED357A700E25E30 /* HouseRepository.swift */; };
 		314C0F571EDDCF6E00E25E30 /* Geolocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C0F561EDDCF6E00E25E30 /* Geolocation.swift */; };
+		314C0F591EDF345300E25E30 /* HomeAppAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C0F581EDF345200E25E30 /* HomeAppAnnotation.swift */; };
 		315A38E31EC0DC6F00C0145B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A38E21EC0DC6F00C0145B /* AppDelegate.swift */; };
 		315A38E81EC0DC6F00C0145B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315A38E61EC0DC6F00C0145B /* Main.storyboard */; };
 		315A38EA1EC0DC6F00C0145B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315A38E91EC0DC6F00C0145B /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		314884421ECE484E009E7994 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		314C0F531ED357A700E25E30 /* HouseRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseRepository.swift; sourceTree = "<group>"; };
 		314C0F561EDDCF6E00E25E30 /* Geolocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geolocation.swift; sourceTree = "<group>"; };
+		314C0F581EDF345200E25E30 /* HomeAppAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAppAnnotation.swift; sourceTree = "<group>"; };
 		315A38DF1EC0DC6F00C0145B /* HomeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		315A38E21EC0DC6F00C0145B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		315A38E71EC0DC6F00C0145B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				315A38E21EC0DC6F00C0145B /* AppDelegate.swift */,
 				315A38E91EC0DC6F00C0145B /* Assets.xcassets */,
 				315A392B1EC0F66700C0145B /* HomeApp.entitlements */,
+				314C0F581EDF345200E25E30 /* HomeAppAnnotation.swift */,
 			);
 			path = HomeApp;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				315A392D1EC1277B00C0145B /* SegueIdentifiers.swift in Sources */,
 				315A39131EC0E52B00C0145B /* LoginViewController.swift in Sources */,
 				31BF8A041ECF6468008057CF /* HouseService.swift in Sources */,
+				314C0F591EDF345300E25E30 /* HomeAppAnnotation.swift in Sources */,
 				315A39401EC3E08E00C0145B /* LocationService.swift in Sources */,
 				315A39331EC12F8000C0145B /* AlertViewUtility.swift in Sources */,
 				315A39171EC0EA5D00C0145B /* String+Localized.swift in Sources */,
