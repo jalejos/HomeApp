@@ -16,8 +16,15 @@ class MapViewController: UIViewController {
     @IBOutlet weak var filterButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var detailsImageView: UIImageView!
+    @IBOutlet weak var detailsAddressLabel: UILabel!
+    @IBOutlet weak var detailsPriceLabel: UILabel!
+    @IBOutlet weak var detailsBedLabel: UILabel!
+    @IBOutlet weak var detailsBathLabel: UILabel!
+    @IBOutlet weak var detailsDescriptionTextView: UITextView!
     @IBOutlet weak var detailsDisplayHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var detailsHideHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var detailsImageSize: NSLayoutConstraint!
     
     //MARK: - Private properties
     private let regionRadius: CLLocationDistance = 1000

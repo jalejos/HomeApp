@@ -72,12 +72,74 @@
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rIN-pQ-9Pa">
                                 <rect key="frame" x="0.0" y="736" width="414" height="0.0"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="import-icon" translatesAutoresizingMaskIntoConstraints="NO" id="2VP-Ss-rwK">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="200" id="wFg-rY-hKk"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpr-02-9gB">
+                                        <rect key="frame" x="8" y="208" width="398" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRd-Dc-sOh">
+                                        <rect key="frame" x="8" y="236.33333333333337" width="39" height="20.333333333333258"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CM5-cD-95v">
+                                        <rect key="frame" x="8" y="265" width="398" height="20"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="# Beds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqy-eE-4Ca">
+                                                <rect key="frame" x="0.0" y="0.0" width="199" height="20.333333333333371"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="# Baths" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUb-0t-N3H">
+                                                <rect key="frame" x="199" y="0.0" width="199" height="20.333333333333371"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="uUb-0t-N3H" firstAttribute="width" secondItem="pqy-eE-4Ca" secondAttribute="width" id="Cme-JG-PQJ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NFu-x4-WMW">
+                                        <rect key="frame" x="8" y="293" width="398" height="99"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="4zP-zK-EcR">
                                         <variation key="heightClass=compact" constant="200"/>
                                     </constraint>
+                                    <constraint firstItem="2VP-Ss-rwK" firstAttribute="top" secondItem="rIN-pQ-9Pa" secondAttribute="top" id="99a-c0-nMd"/>
                                     <constraint firstAttribute="height" id="BQP-ed-kUQ"/>
+                                    <constraint firstItem="lpr-02-9gB" firstAttribute="top" secondItem="2VP-Ss-rwK" secondAttribute="bottom" priority="750" constant="8" id="DIk-Vb-2zZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="lpr-02-9gB" secondAttribute="trailing" constant="8" id="GEa-Qi-GWc"/>
+                                    <constraint firstItem="NFu-x4-WMW" firstAttribute="leading" secondItem="rIN-pQ-9Pa" secondAttribute="leading" constant="8" id="Pxf-M6-9h1"/>
+                                    <constraint firstItem="CM5-cD-95v" firstAttribute="leading" secondItem="rIN-pQ-9Pa" secondAttribute="leading" constant="8" id="QIL-SL-kON"/>
+                                    <constraint firstItem="NFu-x4-WMW" firstAttribute="top" secondItem="CM5-cD-95v" secondAttribute="bottom" priority="750" constant="8" id="Thj-JC-ftg"/>
+                                    <constraint firstAttribute="trailing" secondItem="2VP-Ss-rwK" secondAttribute="trailing" id="XJ0-2Y-Pal"/>
+                                    <constraint firstAttribute="trailing" secondItem="CM5-cD-95v" secondAttribute="trailing" constant="8" id="e1u-Hz-Eia"/>
+                                    <constraint firstAttribute="trailing" secondItem="NFu-x4-WMW" secondAttribute="trailing" constant="8" id="gDt-gn-cZ8"/>
+                                    <constraint firstAttribute="bottom" secondItem="NFu-x4-WMW" secondAttribute="bottom" priority="750" constant="8" id="gRV-C4-XVU"/>
+                                    <constraint firstItem="HRd-Dc-sOh" firstAttribute="top" secondItem="lpr-02-9gB" secondAttribute="bottom" priority="750" constant="8" id="gUr-yG-Qkm"/>
+                                    <constraint firstItem="CM5-cD-95v" firstAttribute="top" secondItem="HRd-Dc-sOh" secondAttribute="bottom" priority="750" constant="8" id="ij5-nP-fRe"/>
+                                    <constraint firstItem="2VP-Ss-rwK" firstAttribute="leading" secondItem="rIN-pQ-9Pa" secondAttribute="leading" id="qFr-dx-bVf"/>
+                                    <constraint firstItem="lpr-02-9gB" firstAttribute="leading" secondItem="rIN-pQ-9Pa" secondAttribute="leading" constant="8" id="qjo-mB-DxG"/>
+                                    <constraint firstItem="HRd-Dc-sOh" firstAttribute="leading" secondItem="rIN-pQ-9Pa" secondAttribute="leading" constant="8" id="wwA-ZX-4m6"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -109,8 +171,15 @@
                         </connections>
                     </navigationItem>
                     <connections>
+                        <outlet property="detailsAddressLabel" destination="lpr-02-9gB" id="pdN-IT-RHn"/>
+                        <outlet property="detailsBathLabel" destination="uUb-0t-N3H" id="Sbb-dv-ZCZ"/>
+                        <outlet property="detailsBedLabel" destination="pqy-eE-4Ca" id="BfS-3H-FHa"/>
+                        <outlet property="detailsDescriptionTextView" destination="NFu-x4-WMW" id="YTS-zf-llU"/>
                         <outlet property="detailsDisplayHeightConstraint" destination="4zP-zK-EcR" id="huB-99-tBx"/>
                         <outlet property="detailsHideHeightConstraint" destination="BQP-ed-kUQ" id="Z7Z-2J-4W7"/>
+                        <outlet property="detailsImageSize" destination="wFg-rY-hKk" id="ila-Qb-vw6"/>
+                        <outlet property="detailsImageView" destination="2VP-Ss-rwK" id="l24-c3-tQ3"/>
+                        <outlet property="detailsPriceLabel" destination="HRd-Dc-sOh" id="gSC-47-gHr"/>
                         <outlet property="filterButton" destination="g6K-Q4-B4u" id="F9T-uL-9fc"/>
                         <outlet property="mapView" destination="X47-NS-rtr" id="xZB-9C-EIQ"/>
                         <outlet property="menuButton" destination="eni-6j-pX3" id="Sad-hw-cTx"/>
@@ -156,4 +225,7 @@
             <point key="canvasLocation" x="-90" y="46"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="import-icon" width="60" height="60"/>
+    </resources>
 </document>
