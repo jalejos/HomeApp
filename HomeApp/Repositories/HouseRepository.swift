@@ -30,9 +30,8 @@ struct HouseRepository {
     static func addHouse(dict: [String: Any], image: UIImage, completionHandler: @escaping (Error?) -> ()) {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         let userHouseRef = houseRef.child(userID)
-        let userImageRef = imageRef.child(userID)
         userHouseRef.child(dict["address"] as! String).setValue(dict)
-        userImageRef.child(dict["address"] as! String).put(UIImagePNGRepresentation(image)!)
+        imageRef.child(dict["address"] as! String).put(UIImagePNGRepresentation(image)!)
         completionHandler(nil)
     }
     
