@@ -92,6 +92,9 @@ class MapViewController: UIViewController {
             detailsBathLabel.text = "#\(baths) baths"
             detailsBedLabel.text = "#\(beds) beds"
         }
+        HouseService.getHouseImage(house: selectedHouse!) { image, error in
+            self.detailsImageView.image = image
+        }
     }
 }
 
