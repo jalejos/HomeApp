@@ -27,6 +27,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var detailsImageSize: NSLayoutConstraint!
     
     //MARK: - Private properties
+    private var houseArray: [House] = []
     private let regionRadius: CLLocationDistance = 1000
     
     //MARK: - Initialization function
@@ -59,6 +60,7 @@ class MapViewController: UIViewController {
     private func getCurrentHousesAnnotations() {
         HouseService.getHouses { houses, error in
             if let houses = houses {
+                self.houseArray = houses
                 for house in houses {
                     self.displayAnnotation(house)
                 }
@@ -72,6 +74,24 @@ class MapViewController: UIViewController {
         annotation.coordinate = CLLocationCoordinate2D.init(latitude: geolocation.latitude!,
                                                             longitude: geolocation.longitude!)
         mapView.addAnnotation(annotation)
+    }
+    
+    fileprivate func configureDetailsView(address: String) {
+        var selectedHouse : House?
+        var count = 0
+        while selectedHouse == nil {
+            if houseArray[count].address == address {
+                selectedHouse = houseArray[count]
+            }
+            count += 1
+        }
+        detailsAddressLabel.text = selectedHouse?.address
+        detailsDescriptionTextView.text = selectedHouse?.description
+        if let price = selectedHouse?.price, let baths = selectedHouse?.bathAmount, let beds = selectedHouse?.bedAmount {
+            detailsPriceLabel.text = String(describing: price)
+            detailsBathLabel.text = "#\(baths) baths"
+            detailsBedLabel.text = "#\(beds) beds"
+        }
     }
 }
 
@@ -101,6 +121,9 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         detailsDisplayHeightConstraint.isActive = true
+        detailsImageSize.constant = detailsDisplayHeightConstraint.constant / 2
         detailsHideHeightConstraint.isActive = false
+        guard let address = view.annotation?.title else { return }
+        configureDetailsView(address: address!)
     }
 }
