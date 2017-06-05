@@ -27,6 +27,16 @@ struct HouseRepository {
         })
     }
     
+    static func getHouseImage(house: House, completionHandler: @escaping (Data?, Error?) -> ()) {
+        guard let address = house.address else { return }
+        let houseImageRef = imageRef.child("\(address)")
+        houseImageRef.data(withMaxSize: 2048 * 2048 * 2048) { data, error in
+            print(error)
+            completionHandler(data, error)
+        }
+        
+    }
+    
     static func addHouse(dict: [String: Any], image: UIImage, completionHandler: @escaping (Error?) -> ()) {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         let userHouseRef = houseRef.child(userID)

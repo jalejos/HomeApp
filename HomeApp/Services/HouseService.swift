@@ -27,6 +27,14 @@ struct HouseService {
             }
         }
     }
+  
+    static func getHouseImage(house: House, completionHandler: @escaping (UIImage?, Error?) -> ()) {
+        HouseRepository.getHouseImage(house: house) { data, error in
+            if let data = data {
+                completionHandler(UIImage.init(data: data), error)
+            }
+        }
+    }
     
     static func addHouse(typeHouse: Int, address: String, state: String, city: String, beds: Int, baths: Int, description: String, price: Int, annotation: MKPointAnnotation,
                          image: UIImage, errorHandler: @escaping (Error?) -> ()) {
