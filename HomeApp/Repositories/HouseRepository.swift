@@ -31,7 +31,6 @@ struct HouseRepository {
         guard let address = house.address else { return }
         let houseImageRef = imageRef.child("\(address)")
         houseImageRef.data(withMaxSize: 2048 * 2048 * 2048) { data, error in
-            print(error)
             completionHandler(data, error)
         }
         
