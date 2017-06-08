@@ -5,6 +5,8 @@
 //  Created by Alejos on 5/8/17.
 //  Copyright © 2017 Alejos. All rights reserved.
 //
+//  House icon extracted from: "https://icons8.com/icon/1291/House"
+//
 
 import UIKit
 import MapKit
@@ -35,7 +37,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         localizeUI()
-        focusCurrentLocation()
+        focusUserLocation()
         getCurrentHousesAnnotations()
     }
     
@@ -46,13 +48,13 @@ class MapViewController: UIViewController {
         searchBar.placeholder = "MAP-SEARCH-PLACEHOLDER".localized()
     }
     
-    private func focusCurrentLocation() {
+    private func focusUserLocation() {
         LocationService.sharedInstance.getLocation { currentLocation in
-            self.focusLocation(location: currentLocation)
+            self.focusNewLocation(location: currentLocation)
         }
     }
     
-    private func focusLocation(location: CLLocation) {
+    private func focusNewLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
@@ -64,6 +66,8 @@ class MapViewController: UIViewController {
                 for house in houses {
                     self.displayAnnotation(house)
                 }
+            } else if let error = error {
+                AlertViewUtility.showAlert(title: "HOUSES-GET-ERROR".localized(), message: error.localizedDescription, button: "CANCEL".localized(), controller: self)
             }
         }
     }
@@ -77,48 +81,42 @@ class MapViewController: UIViewController {
     }
     
     fileprivate func configureDetailsView(address: String) {
-        var selectedHouse : House?
-        var count = 0
-        while selectedHouse == nil {
-            if houseArray[count].address == address {
-                selectedHouse = houseArray[count]
-            }
-            count += 1
+        let filteredHouses = houseArray.filter { house -> Bool in
+            house.address == address
         }
-        detailsAddressLabel.text = selectedHouse?.address
-        detailsDescriptionTextView.text = selectedHouse?.description
-        if let price = selectedHouse?.price, let baths = selectedHouse?.bathAmount, let beds = selectedHouse?.bedAmount {
+        let selectedHouse = filteredHouses[0]
+        detailsAddressLabel.text = selectedHouse.address
+        detailsDescriptionTextView.text = selectedHouse.description
+        if let price = selectedHouse.price, let baths = selectedHouse.bathAmount, let beds = selectedHouse.bedAmount {
             detailsPriceLabel.text = String(describing: price)
             detailsBathLabel.text = "#\(baths) baths"
             detailsBedLabel.text = "#\(beds) beds"
         }
-        HouseService.getHouseImage(house: selectedHouse!) { image, error in
-            self.detailsImageView.image = image
+        HouseService.getHouseImage(house: selectedHouse) { image, error in
+            if image != nil {
+                self.detailsImageView.image = image
+            } else {
+                self.detailsImageView.image = UIImage.init(named: "house-icon")
+            }
         }
     }
 }
 
+//MARK: - Map view delegate
 extension MapViewController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        if annotation is MKUserLocation {
-            return nil
-        }
-        
-        let reuseId = "pin"
+        let reuseId = "housePin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             
             let colorPointAnnotation = annotation as! HomeAppAnnotation
             pinView?.pinTintColor = colorPointAnnotation.pinColor
-            pinView?.isEnabled = true
             
-        }
-        else {
+        } else {
             pinView?.annotation = annotation
         }
-        
         return pinView
     }
     

@@ -30,6 +30,7 @@
 "MAP-SEARCH-PLACEHOLDER" = "Address, city, ZIP, neighborhood";
 "MENU" = "Menu";
 "FILTER" = "Filter";
+"HOUSES-GET-ERROR" = "Error during request";
 
 //MARK: - Settings strings
 "SIGN-OUT" = "Sign out";
