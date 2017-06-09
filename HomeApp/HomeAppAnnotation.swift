@@ -20,6 +20,5 @@ class HomeAppAnnotation: MKPointAnnotation {
         }
         super.init()
         self.title = house.address
-        self.subtitle = String(describing: house.price)
     }
 }
