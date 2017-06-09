@@ -24,7 +24,9 @@ struct HouseRepository {
             } else {
                 completionHandler(nil, nil)
             }
-        })
+        }) { error in
+            completionHandler(nil, error)
+        }
     }
     
     static func getHouseImage(house: House, completionHandler: @escaping (Data?, Error?) -> ()) {
@@ -40,8 +42,15 @@ struct HouseRepository {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         let userHouseRef = houseRef.child(userID)
         userHouseRef.child(dict["address"] as! String).setValue(dict)
-        imageRef.child(dict["address"] as! String).put(UIImagePNGRepresentation(image)!)
-        completionHandler(nil)
+        let imageTask = imageRef.child(dict["address"] as! String).put(UIImagePNGRepresentation(image)!)
+        imageTask.observe(.success) { _ in
+            completionHandler(nil)
+            imageTask.cancel()
+        }
+        imageTask.observe(.failure) { snapshot in
+            completionHandler(snapshot.error)
+            imageTask.cancel()
+        }
     }
     
     static func getMyHouses(completionHandler: @escaping ([String: [String: Any]]?, Error?) -> ()) {
@@ -53,6 +62,8 @@ struct HouseRepository {
             } else {
                 completionHandler(nil, nil)
             }
-        })
+        }) { error in
+            completionHandler(nil, error)
+        }
     }
 }

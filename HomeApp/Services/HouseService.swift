@@ -12,6 +12,7 @@ import MapKit
 
 struct HouseService {
     
+    //MARK: - Public functions
     static func getHouses(completionHandler: @escaping ([House]?, Error?) -> ()) {
         HouseRepository.getHouses { responseDict, error in
             if let responseDict = responseDict {
@@ -32,6 +33,8 @@ struct HouseService {
         HouseRepository.getHouseImage(house: house) { data, error in
             if let data = data {
                 completionHandler(UIImage.init(data: data), error)
+            } else {
+                completionHandler(nil, error)
             }
         }
     }
@@ -55,10 +58,10 @@ struct HouseService {
                 if let houses = Mapper<House>().mapArray(JSONArray: responseArray) {
                     completionHandler(houses, nil)
                 } else {
-                    //TODO
+                    completionHandler([], nil)
                 }
             } else {
-                //TODO
+                completionHandler(nil, error)
             }
         }
     }
