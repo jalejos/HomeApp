@@ -16,12 +16,54 @@ struct HouseRepository {
     static let houseRef = FIRDatabase.database().reference(withPath: "houses")
     static let imageRef = FIRStorage.storage().reference(withPath: "houses")
     
+    
+    static func getHouses(completionHandler: @escaping ([String: Any]?, Error?) -> ()) {
+        houseRef.observeSingleEvent(of: .value, with: { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                completionHandler(dict, nil)
+            } else {
+                completionHandler(nil, nil)
+            }
+        }) { error in
+            completionHandler(nil, error)
+        }
+    }
+    
+    static func getHouseImage(house: House, completionHandler: @escaping (Data?, Error?) -> ()) {
+        guard let address = house.address else { return }
+        let houseImageRef = imageRef.child("\(address)")
+        houseImageRef.data(withMaxSize: 2048 * 2048 * 2048) { data, error in
+            completionHandler(data, error)
+        }
+        
+    }
+    
     static func addHouse(dict: [String: Any], image: UIImage, completionHandler: @escaping (Error?) -> ()) {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         let userHouseRef = houseRef.child(userID)
-        let userImageRef = imageRef.child(userID)
         userHouseRef.child(dict["address"] as! String).setValue(dict)
-        userImageRef.child(dict["address"] as! String).put(UIImagePNGRepresentation(image)!)
-        completionHandler(nil)
+        let imageTask = imageRef.child(dict["address"] as! String).put(UIImagePNGRepresentation(image)!)
+        imageTask.observe(.success) { _ in
+            completionHandler(nil)
+            imageTask.cancel()
+        }
+        imageTask.observe(.failure) { snapshot in
+            completionHandler(snapshot.error)
+            imageTask.cancel()
+        }
+    }
+    
+    static func getMyHouses(completionHandler: @escaping ([String: [String: Any]]?, Error?) -> ()) {
+        guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
+        let userHouseRef = houseRef.child(userID)
+        userHouseRef.observeSingleEvent(of: .value, with: { snapshot in
+            if let dict = snapshot.value as? [String: [String: Any]] {
+                completionHandler(dict, nil)
+            } else {
+                completionHandler(nil, nil)
+            }
+        }) { error in
+            completionHandler(nil, error)
+        }
     }
 }

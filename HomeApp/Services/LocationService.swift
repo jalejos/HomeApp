@@ -20,9 +20,6 @@ class LocationService: NSObject {
         var _locationManager = CLLocationManager()
         _locationManager.delegate = self
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        // Movement threshold for new events
-        _locationManager.distanceFilter = 10.0
         return _locationManager
     }()
     fileprivate let defaultLocation = CLLocation.init(latitude: 29.175, longitude: -111.3583)

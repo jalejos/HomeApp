@@ -14,7 +14,7 @@
         <!--Your Homes-->
         <scene sceneID="R66-GT-b3K">
             <objects>
-                <viewController id="0g1-oz-JE3" customClass="YourHomesViewController" customModule="HomeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="0g1-oz-JE3" customClass="YourHomesViewController" customModule="HomeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="La7-eO-Dk7"/>
                         <viewControllerLayoutGuide type="bottom" id="e3d-14-Hem"/>
@@ -22,22 +22,39 @@
                     <view key="view" contentMode="scaleToFill" id="Cgl-i1-bSM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OIp-r1-tgH">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0g1-oz-JE3" id="Ur2-SP-zJs"/>
+                                    <outlet property="delegate" destination="0g1-oz-JE3" id="cYr-7v-efC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OIp-r1-tgH" firstAttribute="leading" secondItem="Cgl-i1-bSM" secondAttribute="leading" id="L49-cc-iMS"/>
+                            <constraint firstItem="e3d-14-Hem" firstAttribute="top" secondItem="OIp-r1-tgH" secondAttribute="bottom" id="OzY-OM-xTH"/>
+                            <constraint firstItem="OIp-r1-tgH" firstAttribute="top" secondItem="La7-eO-Dk7" secondAttribute="bottom" id="V1M-1R-XMo"/>
+                            <constraint firstAttribute="trailing" secondItem="OIp-r1-tgH" secondAttribute="trailing" id="vxH-Fo-2Kd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Homes" id="Xgc-69-2lR">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="xvd-B9-1eo">
                             <connections>
-                                <segue destination="wA7-sH-HGm" kind="show" id="WVv-M7-0eL"/>
+                                <segue destination="wA7-sH-HGm" kind="show" identifier="houseForm" id="WVv-M7-0eL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="xvd-B9-1eo" id="qPC-pA-pMr"/>
+                        <outlet property="tableView" destination="OIp-r1-tgH" id="V2S-t9-I56"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Cb-w6-9eb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-49" y="212"/>
+            <point key="canvasLocation" x="-50.399999999999999" y="211.84407796101951"/>
         </scene>
         <!--Add/Edit Home-->
         <scene sceneID="UhT-sY-q9i">
