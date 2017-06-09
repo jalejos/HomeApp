@@ -9,27 +9,62 @@
 import UIKit
 
 class HouseDetailsViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    fileprivate enum tableRowTypes: Int {
+        case image
+        case address
+        case price
+        case baths
+        case beds
+        case details
+    }
+    fileprivate let rowAmount = 6
+    fileprivate let cellIdentifier = "cell"
+    fileprivate var house: House?
+    
+    func configure(house: House) {
+        self.house = house
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+extension HouseDetailsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rowAmount
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        if cell == nil {
+            cell = UITableViewCell.init(style: .default, reuseIdentifier: cellIdentifier)
+        }
+        if let house = house {
+            switch indexPath.row {
+            case tableRowTypes.image.rawValue:
+                cell?.imageView?.image = house.image
+                break;
+            case tableRowTypes.address.rawValue:
+                cell?.textLabel?.text = house.address
+                break;
+            case tableRowTypes.price.rawValue:
+                cell?.textLabel?.text = "$\(house.price!)"
+                break;
+            case tableRowTypes.baths.rawValue:
+                cell?.textLabel?.text = "\(house.bathAmount!) baths"
+                break;
+            case tableRowTypes.beds.rawValue:
+                cell?.textLabel?.text = "\(house.bedAmount!) beds"
+                break;
+            case tableRowTypes.details.rawValue:
+                cell?.textLabel?.text = house.description
+                break;
+            default:
+                break;
+            }
+        }
+        return cell!
     }
-    */
-
 }

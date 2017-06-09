@@ -19,6 +19,7 @@ class House: Mappable {
     var description: String?
     var price: Int?
     var geolocation: Geolocation?
+    var image: UIImage?
     
     required init?(map: Map){
         

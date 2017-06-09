@@ -43,6 +43,13 @@ class MapViewController: UIViewController {
         getCurrentHousesAnnotations()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.houseDetails.rawValue {
+            let viewController = segue.destination as! HouseDetailsViewController
+            viewController.configure(house: selectedHouse!)
+        }
+    }
+    
     //MARK: - Private functions
     private func localizeUI() {
         menuButton.title = "MENU".localized()
