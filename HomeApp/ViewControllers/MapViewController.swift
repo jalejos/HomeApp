@@ -27,12 +27,14 @@ class MapViewController: UIViewController {
     @IBOutlet weak var detailsDisplayHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var detailsHideHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var detailsImageSize: NSLayoutConstraint!
+    @IBOutlet weak var detailsButton: UIButton!
     
     //MARK: - Private properties
     private var houseArray: [House] = []
+    private var selectedHouse: House?
     private let regionRadius: CLLocationDistance = 1000
     
-    //MARK: - Initialization function
+    //MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -84,21 +86,30 @@ class MapViewController: UIViewController {
         let filteredHouses = houseArray.filter { house -> Bool in
             house.address == address
         }
-        let selectedHouse = filteredHouses[0]
-        detailsAddressLabel.text = selectedHouse.address
-        detailsDescriptionTextView.text = selectedHouse.description
-        if let price = selectedHouse.price, let baths = selectedHouse.bathAmount, let beds = selectedHouse.bedAmount {
+        let house = filteredHouses[0]
+        detailsAddressLabel.text = house.address
+        detailsDescriptionTextView.text = house.description
+        if let price = house.price, let baths = house.bathAmount, let beds = house.bedAmount {
             detailsPriceLabel.text = String(describing: price)
             detailsBathLabel.text = "#\(baths) baths"
             detailsBedLabel.text = "#\(beds) beds"
         }
-        HouseService.getHouseImage(house: selectedHouse) { image, error in
+        HouseService.getHouseImage(house: house) { image, error in
             if image != nil {
                 self.detailsImageView.image = image
+                self.selectedHouse?.image = image
             } else {
-                self.detailsImageView.image = UIImage.init(named: "house-icon")
+                let image = UIImage.init(named: "house-icon")
+                self.detailsImageView.image = image
+                self.selectedHouse?.image = image
             }
         }
+        selectedHouse = house
+    }
+    
+    //MARK: - UI functions
+    @IBAction func detailsTap(_ sender: Any) {
+        performSegue(withIdentifier: SegueIdentifier.houseDetails.rawValue, sender: self)
     }
 }
 
