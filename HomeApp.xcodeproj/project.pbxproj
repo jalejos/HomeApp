@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		311495FB1EEB0D6000098B22 /* HouseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311495FA1EEB0D6000098B22 /* HouseDetailsViewController.swift */; };
 		314884341ECA5404009E7994 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314884331ECA5404009E7994 /* Login.storyboard */; };
 		314884381ECB6B63009E7994 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314884371ECB6B63009E7994 /* Settings.storyboard */; };
 		3148843A1ECCBA30009E7994 /* YourHomes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314884391ECCBA30009E7994 /* YourHomes.storyboard */; };
@@ -61,6 +62,7 @@
 		10DBA406D1FB5C5364A525D4 /* Pods_HomeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BEF921339D39CD71D7135F /* Pods-HomeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeAppUITests/Pods-HomeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		28B43500DF33E0C1BEF3A741 /* Pods-HomeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeAppTests/Pods-HomeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		311495FA1EEB0D6000098B22 /* HouseDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseDetailsViewController.swift; sourceTree = "<group>"; };
 		314884331ECA5404009E7994 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		314884371ECB6B63009E7994 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		314884391ECCBA30009E7994 /* YourHomes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YourHomes.storyboard; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				315A393D1EC3CF3F00C0145B /* SettingsViewController.swift */,
 				315A39391EC3BB3700C0145B /* SideMenuTableViewController.swift */,
 				3148843D1ECCBF61009E7994 /* YourHomesViewController.swift */,
+				311495FA1EEB0D6000098B22 /* HouseDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				314884401ECCC001009E7994 /* HomeFormViewController.swift in Sources */,
 				315A39381EC26BC900C0145B /* LoginService.swift in Sources */,
 				315A393A1EC3BB3700C0145B /* SideMenuTableViewController.swift in Sources */,
+				311495FB1EEB0D6000098B22 /* HouseDetailsViewController.swift in Sources */,
 				3148843E1ECCBF61009E7994 /* YourHomesViewController.swift in Sources */,
 				314C0F541ED357A700E25E30 /* HouseRepository.swift in Sources */,
 				315A393E1EC3CF3F00C0145B /* SettingsViewController.swift in Sources */,
