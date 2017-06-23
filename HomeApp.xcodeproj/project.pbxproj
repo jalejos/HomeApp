@@ -35,6 +35,8 @@
 		315A393C1EC3C6A000C0145B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315A393B1EC3C6A000C0145B /* MapKit.framework */; };
 		315A393E1EC3CF3F00C0145B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A393D1EC3CF3F00C0145B /* SettingsViewController.swift */; };
 		315A39401EC3E08E00C0145B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A393F1EC3E08E00C0145B /* LocationService.swift */; };
+		3168E22F1EFCE90300C9B8A1 /* HomeImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E22E1EFCE90300C9B8A1 /* HomeImageTableViewCell.swift */; };
+		3168E2311EFCE9C100C9B8A1 /* HomeImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3168E2301EFCE9C100C9B8A1 /* HomeImageTableViewCell.xib */; };
 		3189D4111EF842D6007B8D63 /* HomeActivityDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3189D4101EF842D6007B8D63 /* HomeActivityDisplayable.swift */; };
 		3189D4131EF84364007B8D63 /* ActivityDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3189D4121EF84364007B8D63 /* ActivityDisplayViewController.swift */; };
 		3189D4151EF9ABA7007B8D63 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3189D4141EF9ABA7007B8D63 /* UIImage+Resize.swift */; };
@@ -100,6 +102,8 @@
 		315A393B1EC3C6A000C0145B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		315A393D1EC3CF3F00C0145B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		315A393F1EC3E08E00C0145B /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		3168E22E1EFCE90300C9B8A1 /* HomeImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeImageTableViewCell.swift; sourceTree = "<group>"; };
+		3168E2301EFCE9C100C9B8A1 /* HomeImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeImageTableViewCell.xib; sourceTree = "<group>"; };
 		3189D4101EF842D6007B8D63 /* HomeActivityDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeActivityDisplayable.swift; sourceTree = "<group>"; };
 		3189D4121EF84364007B8D63 /* ActivityDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDisplayViewController.swift; sourceTree = "<group>"; };
 		3189D4141EF9ABA7007B8D63 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 		315A38E11EC0DC6F00C0145B /* HomeApp */ = {
 			isa = PBXGroup;
 			children = (
+				3168E22D1EFCE8DB00C9B8A1 /* ReusableCells */,
 				314884411ECE4838009E7994 /* Models */,
 				315A39351EC132B000C0145B /* Other */,
 				314C0F551ED357AC00E25E30 /* Repositories */,
@@ -281,6 +286,15 @@
 				315A39371EC26BC900C0145B /* LoginService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		3168E22D1EFCE8DB00C9B8A1 /* ReusableCells */ = {
+			isa = PBXGroup;
+			children = (
+				3168E22E1EFCE90300C9B8A1 /* HomeImageTableViewCell.swift */,
+				3168E2301EFCE9C100C9B8A1 /* HomeImageTableViewCell.xib */,
+			);
+			name = ReusableCells;
 			sourceTree = "<group>";
 		};
 		3E603C05BD4A065BB9DC0244 /* Frameworks */ = {
@@ -433,6 +447,7 @@
 				315A39221EC0ED8A00C0145B /* Localizable.strings in Resources */,
 				314884341ECA5404009E7994 /* Login.storyboard in Resources */,
 				3148843A1ECCBA30009E7994 /* YourHomes.storyboard in Resources */,
+				3168E2311EFCE9C100C9B8A1 /* HomeImageTableViewCell.xib in Resources */,
 				315A38EA1EC0DC6F00C0145B /* Assets.xcassets in Resources */,
 				315A38E81EC0DC6F00C0145B /* Main.storyboard in Resources */,
 				315A392A1EC0F21100C0145B /* GoogleService-Info.plist in Resources */,
@@ -619,6 +634,7 @@
 				311495FB1EEB0D6000098B22 /* HouseDetailsViewController.swift in Sources */,
 				3148843E1ECCBF61009E7994 /* YourHomesViewController.swift in Sources */,
 				314C0F541ED357A700E25E30 /* HouseRepository.swift in Sources */,
+				3168E22F1EFCE90300C9B8A1 /* HomeImageTableViewCell.swift in Sources */,
 				315A393E1EC3CF3F00C0145B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
