@@ -14,7 +14,7 @@ import FirebaseStorage
 
 struct HouseRepository {
     static let houseRef = FIRDatabase.database().reference(withPath: "houses")
-    static let imageRef = FIRStorage.storage().reference(withPath: "houses")
+    static let imageRef = FIRStorage.storage().reference()
     
     
     static func getHouses(completionHandler: @escaping ([String: Any]?, Error?) -> ()) {
@@ -30,19 +30,20 @@ struct HouseRepository {
     }
     
     static func getHouseImage(house: House, completionHandler: @escaping (Data?, Error?) -> ()) {
-        guard let address = house.address else { return }
-        let houseImageRef = imageRef.child("\(address)")
-        houseImageRef.data(withMaxSize: 2048 * 2048 * 2048) { data, error in
+        let houseImageRef = imageRef.child(house.key)
+        houseImageRef.data(withMaxSize: Int64.max) { data, error in
             completionHandler(data, error)
         }
-        
     }
     
     static func addHouse(dict: [String: Any], image: UIImage, completionHandler: @escaping (Error?) -> ()) {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         let userHouseRef = houseRef.child(userID)
-        userHouseRef.child(dict["address"] as! String).setValue(dict)
-        let imageTask = imageRef.child(dict["address"] as! String).put(UIImagePNGRepresentation(image)!)
+        let houseChild = userHouseRef.childByAutoId()
+        var houseDict = dict
+        houseDict["key"] = houseChild.key
+        houseChild.setValue(houseDict)
+        let imageTask = imageRef.child(houseChild.key).put(UIImagePNGRepresentation(image.resized(toWidth: 400)!)!)
         imageTask.observe(.success) { _ in
             completionHandler(nil)
             imageTask.cancel()
