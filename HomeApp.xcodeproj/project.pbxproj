@@ -35,6 +35,8 @@
 		315A393C1EC3C6A000C0145B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315A393B1EC3C6A000C0145B /* MapKit.framework */; };
 		315A393E1EC3CF3F00C0145B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A393D1EC3CF3F00C0145B /* SettingsViewController.swift */; };
 		315A39401EC3E08E00C0145B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A393F1EC3E08E00C0145B /* LocationService.swift */; };
+		3189D4111EF842D6007B8D63 /* HomeActivityDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3189D4101EF842D6007B8D63 /* HomeActivityDisplayable.swift */; };
+		3189D4131EF84364007B8D63 /* ActivityDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3189D4121EF84364007B8D63 /* ActivityDisplayViewController.swift */; };
 		31BF8A041ECF6468008057CF /* HouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BF8A031ECF6468008057CF /* HouseService.swift */; };
 		7D7ADEBDDCF316145FC63BCB /* Pods_HomeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAB8222635FB3757FFD7B10 /* Pods_HomeApp.framework */; };
 		8DD93A205DC02E8E1F4FE203 /* Pods_HomeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DBA406D1FB5C5364A525D4 /* Pods_HomeAppUITests.framework */; };
@@ -97,6 +99,8 @@
 		315A393B1EC3C6A000C0145B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		315A393D1EC3CF3F00C0145B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		315A393F1EC3E08E00C0145B /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		3189D4101EF842D6007B8D63 /* HomeActivityDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeActivityDisplayable.swift; sourceTree = "<group>"; };
+		3189D4121EF84364007B8D63 /* ActivityDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDisplayViewController.swift; sourceTree = "<group>"; };
 		31BF8A031ECF6468008057CF /* HouseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseService.swift; sourceTree = "<group>"; };
 		4FAB8222635FB3757FFD7B10 /* Pods_HomeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B0489D8BE9B7F566A4BDC2 /* Pods-HomeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeAppUITests/Pods-HomeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				315A39391EC3BB3700C0145B /* SideMenuTableViewController.swift */,
 				3148843D1ECCBF61009E7994 /* YourHomesViewController.swift */,
 				311495FA1EEB0D6000098B22 /* HouseDetailsViewController.swift */,
+				3189D4121EF84364007B8D63 /* ActivityDisplayViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				315A39151EC0EA4A00C0145B /* Extensions */,
 				315A39321EC12F8000C0145B /* AlertViewUtility.swift */,
 				315A392C1EC1277B00C0145B /* SegueIdentifiers.swift */,
+				3189D4101EF842D6007B8D63 /* HomeActivityDisplayable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				315A392D1EC1277B00C0145B /* SegueIdentifiers.swift in Sources */,
 				315A39131EC0E52B00C0145B /* LoginViewController.swift in Sources */,
 				31BF8A041ECF6468008057CF /* HouseService.swift in Sources */,
+				3189D4131EF84364007B8D63 /* ActivityDisplayViewController.swift in Sources */,
 				314C0F591EDF345300E25E30 /* HomeAppAnnotation.swift in Sources */,
 				315A39401EC3E08E00C0145B /* LocationService.swift in Sources */,
 				315A39331EC12F8000C0145B /* AlertViewUtility.swift in Sources */,
@@ -604,6 +611,7 @@
 				314884401ECCC001009E7994 /* HomeFormViewController.swift in Sources */,
 				315A39381EC26BC900C0145B /* LoginService.swift in Sources */,
 				315A393A1EC3BB3700C0145B /* SideMenuTableViewController.swift in Sources */,
+				3189D4111EF842D6007B8D63 /* HomeActivityDisplayable.swift in Sources */,
 				311495FB1EEB0D6000098B22 /* HouseDetailsViewController.swift in Sources */,
 				3148843E1ECCBF61009E7994 /* YourHomesViewController.swift in Sources */,
 				314C0F541ED357A700E25E30 /* HouseRepository.swift in Sources */,
