@@ -21,12 +21,19 @@ class HouseDetailsViewController: UIViewController {
         case details
     }
     fileprivate let rowAmount = 6
-    fileprivate let cellIdentifier = "cell"
+    fileprivate let imageCellIdentifier = "image"
+    fileprivate let textCellIdentifier = "cell"
     fileprivate var house: House?
+    
+    override func viewDidLoad() {
+        tableView.register(UINib(nibName: "HomeImageTableViewCell", bundle: nil), forCellReuseIdentifier: imageCellIdentifier)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+
+    }
     
     func configure(house: House) {
         self.house = house
-        
     }
 
 }
@@ -36,35 +43,51 @@ extension HouseDetailsViewController: UITableViewDataSource {
         return rowAmount
     }
     
+
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        if cell == nil {
-            cell = UITableViewCell.init(style: .default, reuseIdentifier: cellIdentifier)
-        }
+        var cellText: String?
+        var cellImage: UIImage?
         if let house = house {
             switch indexPath.row {
             case tableRowTypes.image.rawValue:
-                cell?.imageView?.image = house.image
-                break;
+                cellImage = house.image
             case tableRowTypes.address.rawValue:
-                cell?.textLabel?.text = house.address
+                cellText = house.address
                 break;
             case tableRowTypes.price.rawValue:
-                cell?.textLabel?.text = "$\(house.price!)"
+                cellText = "$\(house.price)"
                 break;
             case tableRowTypes.baths.rawValue:
-                cell?.textLabel?.text = "\(house.bathAmount!) baths"
+                cellText = "\(house.bathAmount) baths"
                 break;
             case tableRowTypes.beds.rawValue:
-                cell?.textLabel?.text = "\(house.bedAmount!) beds"
+                cellText = "\(house.bedAmount) beds"
                 break;
             case tableRowTypes.details.rawValue:
-                cell?.textLabel?.text = house.description
+                cellText = house.description
                 break;
             default:
                 break;
             }
         }
-        return cell!
+        if indexPath.row == tableRowTypes.image.rawValue {
+            var cell = tableView.dequeueReusableCell(withIdentifier: imageCellIdentifier) as? HomeImageTableViewCell
+            if cell == nil {
+                cell = HomeImageTableViewCell.init(style: .default, reuseIdentifier: imageCellIdentifier)
+            }
+            cell?.configureWith(cellImage)
+            
+            return cell!
+        } else {
+            var cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier)
+            
+            if cell == nil {
+                cell = UITableViewCell.init(style: .default, reuseIdentifier: textCellIdentifier)
+            }
+            cell?.textLabel?.text = cellText
+            return cell!
+        }
     }
+    
 }
