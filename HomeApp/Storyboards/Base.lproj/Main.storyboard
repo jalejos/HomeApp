@@ -73,13 +73,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rIN-pQ-9Pa">
                                 <rect key="frame" x="0.0" y="736" width="414" height="0.0"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="import-icon" translatesAutoresizingMaskIntoConstraints="NO" id="2VP-Ss-rwK">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2VP-Ss-rwK">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="750" constant="200" id="wFg-rY-hKk"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpr-02-9gB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpr-02-9gB">
                                         <rect key="frame" x="8" y="208" width="398" height="20.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -191,6 +191,7 @@
                         <outlet property="detailsImageSize" destination="wFg-rY-hKk" id="ila-Qb-vw6"/>
                         <outlet property="detailsImageView" destination="2VP-Ss-rwK" id="l24-c3-tQ3"/>
                         <outlet property="detailsPriceLabel" destination="HRd-Dc-sOh" id="gSC-47-gHr"/>
+                        <outlet property="detailsView" destination="rIN-pQ-9Pa" id="9q2-uc-AF7"/>
                         <outlet property="filterButton" destination="g6K-Q4-B4u" id="F9T-uL-9fc"/>
                         <outlet property="mapView" destination="X47-NS-rtr" id="xZB-9C-EIQ"/>
                         <outlet property="menuButton" destination="eni-6j-pX3" id="Sad-hw-cTx"/>
@@ -224,9 +225,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SNU-EE-aEb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SNU-EE-aEb">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="L6L-aa-UpH" id="eu0-ev-4qG"/>
@@ -234,6 +234,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SNU-EE-aEb" firstAttribute="leading" secondItem="0G3-zu-oWu" secondAttribute="leading" id="3M0-ZP-095"/>
+                            <constraint firstAttribute="trailing" secondItem="SNU-EE-aEb" secondAttribute="trailing" id="EeZ-b8-vMM"/>
+                            <constraint firstItem="oFa-d4-wOD" firstAttribute="top" secondItem="SNU-EE-aEb" secondAttribute="bottom" id="ZwT-ne-nTJ"/>
+                            <constraint firstItem="SNU-EE-aEb" firstAttribute="top" secondItem="rnR-lI-pWo" secondAttribute="bottom" id="hht-EF-qSo"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="SNU-EE-aEb" id="Mpq-aV-aMo"/>
@@ -268,7 +274,4 @@
             <point key="canvasLocation" x="-90" y="46"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="import-icon" width="60" height="60"/>
-    </resources>
 </document>
