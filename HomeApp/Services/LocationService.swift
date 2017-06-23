@@ -50,6 +50,21 @@ class LocationService: NSObject {
         }
     }
     
+    func reverseGeolocatePlacemark(coordinate: CLLocationCoordinate2D, completionHandler: @escaping (CLPlacemark?) -> Void) {
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+            var placemark: CLPlacemark?
+            if let placemarks = placemarks {
+                if placemarks.count > 0 {
+                    placemark = placemarks[0]
+                }
+            }
+            completionHandler(placemark)
+        })
+
+    }
+    
     //MARK: Private functions
     fileprivate func updateCurrentLocation(newLocation: CLLocation) {
         currentLocation = newLocation
