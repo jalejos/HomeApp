@@ -8,11 +8,17 @@
 
 import Foundation
 import ObjectMapper
+import MapKit
 
 class Geolocation: Mappable {
     
     var longitude: Double?
     var latitude: Double?
+    
+    init(longitude: Double, latitude: Double) {
+        self.longitude = longitude
+        self.latitude = latitude
+    }
     
     required init?(map: Map){
         
