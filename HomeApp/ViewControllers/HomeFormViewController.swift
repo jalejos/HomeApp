@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class HomeFormViewController: UIViewController {
+class HomeFormViewController: ActivityDisplayViewController {
 
     //MARK: - UI elements
     @IBOutlet weak var mapView: MKMapView!
@@ -68,6 +68,11 @@ class HomeFormViewController: UIViewController {
     //MARK: - Public functions
     func configure(with house: House) {
         selectedHouse = house
+        HouseService.getHouseImage(house: house) { image, error in
+            if let image = image {
+                self.setImage(image)
+            }
+        }
     }
     
     //MARK: - Private functions
@@ -99,7 +104,7 @@ class HomeFormViewController: UIViewController {
             self.mapView.setRegion(coordinateRegion, animated: true)
             changeAnnotation(location: location.coordinate)
         } else {
-                LocationService.sharedInstance.getLocation { location in
+            LocationService.sharedInstance.getLocation { location in
                 let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, self.regionRadius * 2.0, self.regionRadius * 2.0)
                 self.mapView.setRegion(coordinateRegion, animated: true)
             }
@@ -114,24 +119,23 @@ class HomeFormViewController: UIViewController {
     }
     
     private func reverseGeolocate(coordinate: CLLocationCoordinate2D) {
-        let geoCoder = CLGeocoder()
-        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
-            var placeMark: CLPlacemark!
-            placeMark = placemarks?[0]
-            
-            if let locationName = placeMark.addressDictionary!["Name"] as? String {
-                self.addressField.text = locationName
+        showActivityIndicator(message: "Calculating")
+        LocationService.sharedInstance.reverseGeolocatePlacemark(coordinate: coordinate) { placemark in
+            self.hideActivityIndicator()
+            if let placemark = placemark {
+                if let locationName = placemark.addressDictionary!["Name"] as? String {
+                    self.addressField.text = locationName
+                }
+                
+                if let city = placemark.addressDictionary!["City"] as? String {
+                    self.cityField.text = city
+                }
+                
+                if let state = placemark.addressDictionary!["State"] as? String {
+                    self.stateField.text = state
+                }
             }
-            
-            if let city = placeMark.addressDictionary!["City"] as? String {
-                self.cityField.text = city
-            }
-            
-            if let state = placeMark.addressDictionary!["State"] as? String {
-                self.stateField.text = state
-            }
-        })
+        }
     }
     
     private func requestPhoto() {
@@ -166,24 +170,35 @@ class HomeFormViewController: UIViewController {
     }
     
     private func fillForm(with house: House) {
-        guard let typeHouse = house.houseType, let address = house.address, let state = house.state, let city = house.city,
-            let beds = house.bedAmount, let baths = house.bathAmount, let description = house.description,
-            let price = house.price
-            else {return}
-        typeHouseSegmentedControl.selectedSegmentIndex = typeHouse
-        addressField.text = address
-        stateField.text = state
-        cityField.text = city
-        bedsField.text = String(beds)
-        bathsField.text = String(baths)
-        descriptionTextView.text = description
-        priceField.text = String(price)
+        typeHouseSegmentedControl.selectedSegmentIndex = house.houseType
+        addressField.text = house.address
+        stateField.text = house.state
+        cityField.text = house.city
+        bedsField.text = String(house.bedAmount)
+        bathsField.text = String(house.bathAmount)
+        descriptionTextView.text = house.description
+        priceField.text = String(house.price)
+    }
+    
+    private func isFormValid() -> Bool {
+        if let address = addressField.text, let state = stateField.text, let city = cityField.text,
+            let _ = Int(bedsField.text!), let _ = Int(bathsField.text!), let description = descriptionTextView.text, let _ = Int(priceField.text!) {
+            if !address.isEmpty && !state.isEmpty && !city.isEmpty && !description.isEmpty {
+                return true
+            }
+        }
+        return false
+    }
+    
+    fileprivate func setImage(_ image: UIImage) {
+        imageView.image = image
+        selectedImage = image
     }
     
     //MARK: - Selector functions
-    @objc private func handleMapTap(sender: UITapGestureRecognizer? = nil) {
-        let mapPoint = sender?.location(in: mapView)
-        let map2DCoordinate = mapView.convert(mapPoint!, toCoordinateFrom: mapView)
+    dynamic private func handleMapTap(sender: UITapGestureRecognizer) {
+        let mapPoint = sender.location(in: mapView)
+        let map2DCoordinate = mapView.convert(mapPoint, toCoordinateFrom: mapView)
         
         changeAnnotation(location: map2DCoordinate)
     }
@@ -203,24 +218,24 @@ class HomeFormViewController: UIViewController {
                                            button: "CLOSE".localized(), controller: self)
                 return
         }
-        
-        if let address = addressField.text, let state = stateField.text, let city = cityField.text,
-            let beds = Int(bedsField.text!), let baths = Int(bathsField.text!), let description = descriptionTextView.text, let price = Int(priceField.text!) {
-            if !address.isEmpty && !state.isEmpty && !city.isEmpty && !description.isEmpty {
-                let typeHouse = typeHouseSegmentedControl.selectedSegmentIndex
-                HouseService.addHouse(typeHouse: typeHouse, address: address, state: state, city: city, beds: beds, baths: baths,
-                                      description: description, price: price, annotation: annotation, image: image) { error in
-                                        if let error = error {
-                                            AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
-                                        } else {
-                                            _ = self.navigationController?.popViewController(animated: true)
-                                        }
+        if isFormValid() {
+            let typeHouse = typeHouseSegmentedControl.selectedSegmentIndex
+            showActivityIndicator(message: "Adding house")
+            let house = House(houseType: typeHouse, address: addressField.text!, state: stateField.text!, city: cityField.text!, bedAmount: Int(bedsField.text!)!,
+                              bathAmount: Int(bedsField.text!)!, description: descriptionTextView.text, price: Int(priceField.text!)!,
+                              geolocation: Geolocation(longitude: annotation.coordinate.longitude, latitude: annotation.coordinate.latitude), image: image)
+            HouseService.add(house: house) { error in
+                self.hideActivityIndicator()
+                if let error = error {
+                    AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: error.localizedDescription, button: "CLOSE".localized(), controller: self)
+                } else {
+                    _ = self.navigationController?.popViewController(animated: true)
                 }
-                return
             }
+        } else {
+            AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: "ADD-HOUSE-INCOMPLETE-SUBMIT".localized(),
+                                       button: "CLOSE".localized(), controller: self)
         }
-        AlertViewUtility.showAlert(title: "ADD-HOUSE-ERROR-TITLE".localized(), message: "ADD-HOUSE-INCOMPLETE-SUBMIT".localized(),
-                                           button: "CLOSE".localized(), controller: self)
     }
     
     @IBAction func selectImage(_ sender: Any) {
@@ -284,8 +299,7 @@ extension HomeFormViewController: UIPickerViewDelegate{
 extension HomeFormViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imageView.image = chosenImage
-        selectedImage = chosenImage
+        setImage(chosenImage)
         dismiss(animated: true, completion: nil)
     }
     
