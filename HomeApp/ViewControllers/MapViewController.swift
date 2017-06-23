@@ -11,7 +11,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: ActivityDisplayViewController {
 
     //MARK: - UI elements
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -28,6 +28,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var detailsHideHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var detailsImageSize: NSLayoutConstraint!
     @IBOutlet weak var detailsButton: UIButton!
+    @IBOutlet weak var detailsView: UIView!
     
     //MARK: - Private properties
     private var houseArray: [House] = []
@@ -40,7 +41,14 @@ class MapViewController: UIViewController {
 
         localizeUI()
         focusUserLocation()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         getCurrentHousesAnnotations()
+        detailsDisplayHeightConstraint.isActive = false
+        detailsHideHeightConstraint.isActive = true
+        detailsView.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,7 +77,9 @@ class MapViewController: UIViewController {
     }
     
     private func getCurrentHousesAnnotations() {
+        showActivityIndicator(message: "Loading houses")
         HouseService.getHouses { houses, error in
+            self.hideActivityIndicator()
             if let houses = houses {
                 self.houseArray = houses
                 for house in houses {
@@ -83,24 +93,23 @@ class MapViewController: UIViewController {
     
     private func displayAnnotation(_ house: House) {
         let annotation = HomeAppAnnotation.init(house: house)
-        guard let geolocation = house.geolocation else { return }
+        let geolocation = house.geolocation
         annotation.coordinate = CLLocationCoordinate2D.init(latitude: geolocation.latitude!,
                                                             longitude: geolocation.longitude!)
         mapView.addAnnotation(annotation)
     }
     
     fileprivate func configureDetailsView(address: String) {
+        detailsView.isHidden = false
         let filteredHouses = houseArray.filter { house -> Bool in
             house.address == address
         }
         let house = filteredHouses[0]
         detailsAddressLabel.text = house.address
         detailsDescriptionTextView.text = house.description
-        if let price = house.price, let baths = house.bathAmount, let beds = house.bedAmount {
-            detailsPriceLabel.text = String(describing: price)
-            detailsBathLabel.text = "#\(baths) baths"
-            detailsBedLabel.text = "#\(beds) beds"
-        }
+        detailsPriceLabel.text = "$\(house.price)"
+        detailsBathLabel.text = "#\(house.bathAmount) baths"
+        detailsBedLabel.text = "#\(house.bedAmount) beds"
         HouseService.getHouseImage(house: house) { image, error in
             if image != nil {
                 self.detailsImageView.image = image
